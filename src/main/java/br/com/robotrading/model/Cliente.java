@@ -39,7 +39,7 @@ public class Cliente {
 	private String emailCli;
 
 //	@NotBlank
-	private String PasswordCli;
+	private String passwordCli;
 
 //	@Length(min = 11, max = 11)
 	private Long CpfCli;
@@ -102,12 +102,12 @@ public class Cliente {
 		this.emailCli = emailCli;
 	}
 
-	public String getPasswordCli() {
-		return PasswordCli;
+	public String getpasswordCli() {
+		return passwordCli;
 	}
 
-	public void setPasswordCli(String passwordCli) {
-		PasswordCli = passwordCli;
+	public void setpasswordCli(String passwordCli) {
+		this.passwordCli = passwordCli;
 	}
 
 	public Long getCpfCli() {

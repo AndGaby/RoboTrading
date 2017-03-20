@@ -18,6 +18,16 @@
 			<input type="text" class="form-control" id="userName" name="userNameCli" placeholder="UserName"/>
 		</div>
 		
+		<div class="form-group">
+			<label for="Email">Email</label>
+			<input type="text" class="form-control" id="email" name="emailCli" placeholder="EmailCli"/>
+		</div>
+		
+		<div class="form-group">
+			<label for="Senha">Senha</label>
+			<input type="text" class="form-control" id="senha" name="passwordCli" placeholder="passwordCli"/>
+		</div>
+		
 		<button type="submit" class="btn btn-success">Cadastrar</button>
 	</form>
 </body>

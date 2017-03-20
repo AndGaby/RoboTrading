@@ -34,20 +34,20 @@ public class ClientesController {
 	@RequestMapping(value = "", method = RequestMethod.POST, name = "cadastrarClientes")
 	public ModelAndView CadastraClientes(@Valid Cliente clientes, BindingResult result){
 		ModelAndView mav = new ModelAndView("form");
-		
-		System.out.println(clientes.getUserNameCli());
-		if (result.hasErrors()) {
-			
+
+		if (result.hasErrors()) {			
 			return formularioCadastrarClientes(clientes);
 		}
 		
+		String userName = clientes.getUserNameCli();
 		String email = clientes.getEmailCli();
 		
-		Cliente findByEmail = clientesDAO.findByEmailCli(email);
+		Cliente findByUserNameCli = clientesDAO.findByUserNameCli(userName);
+		Cliente findByEmailCli = clientesDAO.findByEmailCli(email);
 		
-		if(findByEmail != null){
+		if(findByUserNameCli != null || findByEmailCli != null){
 			 mav = formularioCadastrarClientes(clientes);
-			 mav.addObject("mensagem","Email já cadastrado");
+			 mav.addObject("mensagem","Usuario ou Email já cadastrado");
 			 return mav;
 		}else{
 			clientesDAO.save(clientes);
