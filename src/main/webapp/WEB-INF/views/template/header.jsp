@@ -10,14 +10,29 @@
 <title>Mammon Trading</title>
 <link rel="stylesheet" type="text/css"
 	href="/webjars/bootstrap/css/bootstrap.min.css" />
+<link href="<c:url value='/resources/css/business-casual.css'  />"
+	rel="stylesheet" />
 <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="jumbotron text-center">
-		<h1>My First Bootstrap Page</h1>
-		<p>Resize this responsive page to see the effect!</p>
+	<div class="brand">Mammon Trading</div>
+	<div class="address-bar">Robôs para Investimentos</div>
+
+	<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Robô Trading</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="/">Home</a></li>
+			<li><a href="/robos">Robôs</a></li>
+			<li><a href="/artigos">Artigos</a></li>
+			<li><a href="/tutoriais">Tutoriais</a></li>
+			<li><a href="/contato">Contato</a></li>
+		</ul>
 	</div>
+	</nav>
 </body>
 </html>

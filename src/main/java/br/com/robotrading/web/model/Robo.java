@@ -1,5 +1,7 @@
 package br.com.robotrading.web.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,9 +16,13 @@ public class Robo {
 	@GeneratedValue
 	@Id
 	private Long id;
-	
+
 	@NotBlank
-	private String nome;
+	private String titulo;
+
+	private String linkImg;
+
+	private BigDecimal valor;
 
 	public Long getId() {
 		return id;
@@ -26,11 +32,28 @@ public class Robo {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
+
+	public String getLinkImg() {
+		return linkImg;
+	}
+
+	public void setLinkImg(String linkImg) {
+		this.linkImg = linkImg;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
 }
