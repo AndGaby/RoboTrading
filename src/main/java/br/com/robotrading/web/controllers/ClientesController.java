@@ -17,16 +17,10 @@ public class ClientesController {
 	@Autowired
 	private ClientesDAO clientesDAO;
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ModelAndView index(){
-		ModelAndView mav = new ModelAndView("index");
-		
-		return mav;
-	}
 	
 	@RequestMapping(value="/new", method = RequestMethod.GET, name = "formularioClientes")
 	public ModelAndView formularioCadastrarClientes(Cliente clientes) {
-		ModelAndView mav = new ModelAndView("form");
+		ModelAndView mav = new ModelAndView("cliente/form");
 		mav.addObject("clientes", clientes);
 		return mav;
 	}
