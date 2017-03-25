@@ -18,7 +18,7 @@ package br.com.robotrading.web.controllers;
 		
 		@RequestMapping(value = "/index",method = RequestMethod.GET, name = "montarIndex")
 		public ModelAndView montarHome() {
-			ModelAndView mav = new ModelAndView("/sistema/index");
+			ModelAndView mav = new ModelAndView("sistema/index");
 			
 			return mav;
 		}
