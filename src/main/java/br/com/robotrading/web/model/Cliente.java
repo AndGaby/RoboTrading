@@ -1,4 +1,4 @@
-package br.com.robotrading.model;
+package br.com.robotrading.web.model;
 
 import java.time.LocalDate;
 
@@ -9,20 +9,15 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name = "Clientes")
 public class Cliente {
 	
-	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue
 	private Long IdCli;
 
-	@NotBlank
 	@Length(min = 3, max = 45)
 	private String nomeCli;
 	

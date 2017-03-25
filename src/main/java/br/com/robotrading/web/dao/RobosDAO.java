@@ -1,8 +1,8 @@
-package br.com.robotrading.dao;
+package br.com.robotrading.web.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.robotrading.model.Robo;
+import br.com.robotrading.web.model.Robo;
 
 public interface RobosDAO extends JpaRepository<Robo, Long> {
 

@@ -1,14 +1,16 @@
 package br.com.robotrading.web.controllers;
 
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import br.com.robotrading.dao.ClientesDAO;
-import br.com.robotrading.model.Cliente;
+
+import br.com.robotrading.web.dao.ClientesDAO;
+import br.com.robotrading.web.model.Cliente;
 
 @Controller
 @RequestMapping("/clientes")

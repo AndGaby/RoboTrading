@@ -1,9 +1,11 @@
-package br.com.robotrading.model;
+package br.com.robotrading.web.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "Robos")
@@ -13,6 +15,7 @@ public class Robo {
 	@Id
 	private Long id;
 	
+	@NotBlank
 	private String nome;
 
 	public Long getId() {
