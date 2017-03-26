@@ -2,6 +2,7 @@
 
 <body>
 	<div class="container">
+		<%@ include file="barra-menu-admin.jsp"%>
 		<div class="row">
 			<div class="box">
 				<div class="col-md-12 text-center">
@@ -12,8 +13,15 @@
 						</c:forEach>
 					</spring:hasBindErrors>
 					<form:form action="/robos" method="POST" commandName="robo">
-						<label for="foto">Nome:</label>
+						<label for="nome">Nome:</label>
 						<form:input path="nome" />
+						<br>
+						<label for="linkImg">Link Imagem:</label>
+						<form:input path="linkImg" />
+						<br>
+						<label for="preco">Preço:</label>
+						<form:input path="preco" />
+						<br>
 						<form:button>Cadastrar</form:button>
 					</form:form>
 				</div>

@@ -14,21 +14,10 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+<!-- 				navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
 				<a class="navbar-brand" href="index.html">Robô Trading</a>
 			</div>
 
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="login.html">Login</a></li>
-
-					<li><a href="personalizarRobos.html">Personalizar Robôs</a></li>
-					<li><a href="contato.html">Contato</a></li>
-
-				</ul>
-			</div>
 			<!-- /.navbar-collapse -->
 		</div>
 		<div>

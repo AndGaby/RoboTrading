@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -40,8 +39,7 @@ public class ClientesController {
 			mav.addObject("msg", "Campos invalidos");
 		} else {
 			clientesDAO.save(cliente);
-			mav = new ModelAndView("redirect:/clientes");
-			System.out.println("salvo");
+			mav = new ModelAndView("redirect:/cliente");
 			attrs.addFlashAttribute("msg", "Cliente criado com sucesso");
 		}
 		return mav;
@@ -85,7 +83,7 @@ public class ClientesController {
 		findCliente(idCli);
 		clientesDAO.delete(idCli);
 
-		ModelAndView mav = new ModelAndView("redirect:/clientes");
+		ModelAndView mav = new ModelAndView("redirect:/cliente");
 		attrs.addFlashAttribute("msg", "Cliente deletado com sucesso");
 
 		return mav;
