@@ -104,7 +104,6 @@ public class RobosController {
 		if (robosDAO.exists(id)) {
 			return robosDAO.findOne(id);
 		}
-
 		throw new RoboNaoExisteException();
 	}
 

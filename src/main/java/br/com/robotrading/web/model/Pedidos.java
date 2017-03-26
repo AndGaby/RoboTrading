@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 
-@Entity
 public class Pedidos {
 
 	private long idItem;
