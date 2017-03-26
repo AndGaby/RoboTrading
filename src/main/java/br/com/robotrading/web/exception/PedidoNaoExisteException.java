@@ -1,6 +1,6 @@
 package br.com.robotrading.web.exception;
 
-public class RoboNaoExisteExcpetion extends RuntimeException {
+public class PedidoNaoExisteException {
 
 	/**
 	 * 
@@ -8,3 +8,5 @@ public class RoboNaoExisteExcpetion extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
 }
+
+

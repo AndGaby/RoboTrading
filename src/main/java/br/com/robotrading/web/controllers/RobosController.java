@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.robotrading.web.dao.RobosDAO;
-import br.com.robotrading.web.exception.RoboNaoExisteExcpetion;
+import br.com.robotrading.web.exception.RoboNaoExisteException;
 import br.com.robotrading.web.model.Robo;
 
 @Controller
@@ -105,12 +105,11 @@ public class RobosController {
 			return robosDAO.findOne(id);
 		}
 
-		throw new RoboNaoExisteExcpetion();
+		throw new RoboNaoExisteException();
 	}
 
 	// @InitBinder
 	// public void initBinder(WebDataBinder binder) {
 	// binder.setValidator(new RoboValidator());
 	// }
-
 }

@@ -1,12 +1,10 @@
 package br.com.robotrading.web.model;
 
 import java.math.BigDecimal;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
@@ -55,5 +53,4 @@ public class Robo {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-
 }
