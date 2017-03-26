@@ -34,6 +34,13 @@ public class RobosController {
 		return mav;
 	}
 
+	@GetMapping("/listar")
+	public ModelAndView indexAdmin() {
+		ModelAndView mav = new ModelAndView("robos/listar");
+		mav.addObject("robos", robosDAO.findAll());
+		return mav;
+	}
+
 	@GetMapping("/new")
 	public ModelAndView newObj(Robo robo) {
 		ModelAndView mav = new ModelAndView("robos/new");
@@ -50,7 +57,7 @@ public class RobosController {
 			mav.addObject("msg", "Campos invalidos");
 		} else {
 			robosDAO.save(robo);
-			mav = new ModelAndView("redirect:/robos");
+			mav = new ModelAndView("redirect:/robos/listar");
 			attrs.addFlashAttribute("msg", "Robô criado com sucesso");
 		}
 
@@ -72,7 +79,8 @@ public class RobosController {
 	}
 
 	@PostMapping("/{id}")
-	public ModelAndView update(@PathVariable("id") Long id, @Valid Robo robo, BindingResult result, RedirectAttributes attrs) {
+	public ModelAndView update(@PathVariable("id") Long id, @Valid Robo robo, BindingResult result,
+			RedirectAttributes attrs) {
 		ModelAndView mav = null;
 
 		findRobo(id);
@@ -84,7 +92,7 @@ public class RobosController {
 			mav = new ModelAndView("robos/show");
 			attrs.addFlashAttribute("msg", "Robô atualizado com sucesso");
 		}
-		
+
 		mav.addObject("robo", robo);
 		return mav;
 	}
@@ -94,7 +102,7 @@ public class RobosController {
 		findRobo(id);
 		robosDAO.delete(id);
 
-		ModelAndView mav = new ModelAndView("redirect:/robos");
+		ModelAndView mav = new ModelAndView("redirect:/robos/listar");
 		attrs.addFlashAttribute("msg", "Robô deletado com sucesso");
 
 		return mav;

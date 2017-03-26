@@ -7,8 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 @Entity
 @Table(name = "Robos")
 public class Robo {
@@ -17,12 +15,13 @@ public class Robo {
 	@Id
 	private Long id;
 
-	@NotBlank
-	private String titulo;
+	private String nome;
 
 	private String linkImg;
 
-	private BigDecimal valor;
+	private BigDecimal preco;
+
+	private Integer contratados;
 
 	public Long getId() {
 		return id;
@@ -32,12 +31,12 @@ public class Robo {
 		this.id = id;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getLinkImg() {
@@ -48,12 +47,20 @@ public class Robo {
 		this.linkImg = linkImg;
 	}
 
-	public BigDecimal getValor() {
-		return valor;
+	public BigDecimal getPreco() {
+		return preco;
 	}
 
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
+
+	public Integer getContratados() {
+		return contratados;
+	}
+
+	public void setContratados(Integer contratados) {
+		this.contratados = contratados;
 	}
 
 }
