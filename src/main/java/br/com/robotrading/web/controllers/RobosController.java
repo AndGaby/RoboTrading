@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.robotrading.web.dao.RobosDAO;
-import br.com.robotrading.web.exception.RoboNaoExisteExcpetion;
+import br.com.robotrading.web.exception.RoboNaoExisteException;
 import br.com.robotrading.web.model.Robo;
 
 @Controller
@@ -34,6 +34,13 @@ public class RobosController {
 		return mav;
 	}
 
+	@GetMapping("/listar")
+	public ModelAndView indexAdmin() {
+		ModelAndView mav = new ModelAndView("robos/listar");
+		mav.addObject("robos", robosDAO.findAll());
+		return mav;
+	}
+
 	@GetMapping("/new")
 	public ModelAndView newObj(Robo robo) {
 		ModelAndView mav = new ModelAndView("robos/new");
@@ -50,7 +57,7 @@ public class RobosController {
 			mav.addObject("msg", "Campos invalidos");
 		} else {
 			robosDAO.save(robo);
-			mav = new ModelAndView("redirect:/robos");
+			mav = new ModelAndView("redirect:/robos/listar");
 			attrs.addFlashAttribute("msg", "Robô criado com sucesso");
 		}
 
@@ -58,21 +65,22 @@ public class RobosController {
 	}
 
 	@GetMapping("/{id}")
-	public ModelAndView show(@PathVariable("id") Long id) {
+	public ModelAndView show(@PathVariable("id") Integer id) {
 		ModelAndView mav = new ModelAndView("robos/show");
 		mav.addObject("robo", findRobo(id));
 		return mav;
 	}
 
 	@GetMapping("/{id}/edit")
-	public ModelAndView edit(@PathVariable("id") Long id) {
+	public ModelAndView edit(@PathVariable("id") Integer id) {
 		ModelAndView mav = new ModelAndView("robos/edit");
 		mav.addObject("robo", findRobo(id));
 		return mav;
 	}
 
 	@PostMapping("/{id}")
-	public ModelAndView update(@PathVariable("id") Long id, @Valid Robo robo, BindingResult result, RedirectAttributes attrs) {
+	public ModelAndView update(@PathVariable("id") Integer id, @Valid Robo robo, BindingResult result,
+			RedirectAttributes attrs) {
 		ModelAndView mav = null;
 
 		findRobo(id);
@@ -84,33 +92,31 @@ public class RobosController {
 			mav = new ModelAndView("robos/show");
 			attrs.addFlashAttribute("msg", "Robô atualizado com sucesso");
 		}
-		
+
 		mav.addObject("robo", robo);
 		return mav;
 	}
 
 	@GetMapping("/{id}/delete")
-	public ModelAndView destroy(@PathVariable("id") Long id, RedirectAttributes attrs) {
+	public ModelAndView destroy(@PathVariable("id") Integer id, RedirectAttributes attrs) {
 		findRobo(id);
 		robosDAO.delete(id);
 
-		ModelAndView mav = new ModelAndView("redirect:/robos");
+		ModelAndView mav = new ModelAndView("redirect:/robos/listar");
 		attrs.addFlashAttribute("msg", "Robô deletado com sucesso");
 
 		return mav;
 	}
 
-	private Robo findRobo(Long id) {
+	private Robo findRobo(Integer id) {
 		if (robosDAO.exists(id)) {
 			return robosDAO.findOne(id);
 		}
-
-		throw new RoboNaoExisteExcpetion();
+		throw new RoboNaoExisteException();
 	}
 
 	// @InitBinder
 	// public void initBinder(WebDataBinder binder) {
 	// binder.setValidator(new RoboValidator());
 	// }
-
 }

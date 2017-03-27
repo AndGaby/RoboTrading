@@ -1,5 +1,11 @@
 <body>
-	<div class="text-center">
-		<h1>This is a footer</h1>
-	</div>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<p>Mammon Trading &copy; 2017</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>

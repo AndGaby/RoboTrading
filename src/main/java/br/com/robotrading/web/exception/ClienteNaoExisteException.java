@@ -1,7 +1,6 @@
 package br.com.robotrading.web.exception;
 
-public class RoboNaoExisteExcpetion extends RuntimeException {
-
+public class ClienteNaoExisteException extends RuntimeException{
 	/**
 	 * 
 	 */

@@ -1,26 +1,16 @@
 <%@ include file="../template/header.jsp"%>
 
 <body>
-	${msg}
 	<div class="container">
+		<%@ include file="barra-menu-admin.jsp"%>
 		<div class="row">
-			<div class="col-md-4">
-				<table class="table">
-					<tr>
-						<th>Id</th>
-						<th>Nome</th>
-					</tr>
-					<c:forEach items="${robos}" var="robo">
-						<tr>
-							<td>${robo.id}</td>
-							<td>${robo.nome}</td>
-						</tr>
-					</c:forEach>
-				</table>
+			<div class="box">
+				<div class="col-md-12 text-center">
+					<p>Reservado para Gabi</p>
+				</div>
 			</div>
 		</div>
 	</div>
-
 </body>
 
 <%@ include file="../template/footer.jsp"%>
