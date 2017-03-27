@@ -1,7 +1,6 @@
 # Import MNIST data
 #import input_data
 #mnist = input_data.read_data_sets("/mnt/c/Users/CaiquedosSantosCoelh/Desktop/tensorflow/", one_hot=True)
-
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
@@ -18,20 +17,19 @@ x = tf.placeholder("float", [None, 784]) # mnist data image of shape 28*28=784
 y = tf.placeholder("float", [None, 10]) # 0-9 digits recognition => 10 classes
 
 # Create a model
-
 # Set model weights
 W = tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
 
 with tf.name_scope("Wx_b") as scope:
-    # Construct a linear model
+        # Construct a linear model
     model = tf.nn.softmax(tf.matmul(x, W) + b) # Softmax
-    
-# Add summary ops to collect data
-w_h = tf.summary.histogram("weights", W)##tf.histogram_summary("weights", W)
-b_h = tf.summary.histogram("biases", b)##tf.histogram_summary("biases", b)
 
-# More name scopes will clean up graph representation
+    # Add summary ops to collect data
+    w_h = tf.summary.histogram("weights", W)##tf.histogram_summary("weights", W)
+    b_h = tf.summary.histogram("biases", b)##tf.histogram_summary("biases", b)
+
+    # More name scopes will clean up graph representation
 with tf.name_scope("cost_function") as scope:
     # Minimize error using cross entropy
     # Cross entropy
@@ -40,26 +38,24 @@ with tf.name_scope("cost_function") as scope:
     tf.summary.scalar("cost_function", cost_function) #tf.scalar_summary old
 
 with tf.name_scope("train") as scope:
-    # Gradient descent
+        # Gradient descent
     optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost_function)
 
-# Initializing the variables
-init = tf.initialize_all_variables()
+    # Initializing the variables
+    init = tf.global_variables_initializer()
 
-# Merge all summaries into a single operator
-merged_summary_op = tf.summary.merge_all(key=tf.GraphKeys.SUMMARIES)#tf.merge_all_summaries()
+    # Merge all summaries into a single operator
+    merged_summary_op = tf.summary.merge_all(key=tf.GraphKeys.SUMMARIES)#tf.merge_all_summaries()
 
-# Launch the graph
+    # Launch the graph
 with tf.Session() as sess:
     sess.run(init)
 
-    
-    
-    # Change this to a location on your computer
-    summary_writer = tf.summary.FileWriter('/mnt/c/Users/CaiquedosSantosCoelh/Desktop/tensorflow/', graph=sess.graph)
-	# tf.train.SummaryWriter -- graph_def=sess.graph_def deprecated
-	
-    # Training cycle
+        # Change this to a location on your computer
+    summary_writer = tf.summary.FileWriter('/Users/caiquecoelho/Desktop', graph=sess.graph)
+     # tf.train.SummaryWriter -- graph_def=sess.graph_def deprecated
+
+        # Training cycle
     for iteration in range(training_iteration):
         avg_cost = 0.
         total_batch = int(mnist.train.num_examples/batch_size)
@@ -73,16 +69,14 @@ with tf.Session() as sess:
             # Write logs for each iteration
             summary_str = sess.run(merged_summary_op, feed_dict={x: batch_xs, y: batch_ys})
             summary_writer.add_summary(summary_str, iteration*total_batch + i)
-        # Display logs per iteration step
-       if iteration % display_step == 0:
-            print '%04d' % (iteration + 1), "cost=", "{:.9f}".format(avg_cost)
+            # Display logs per iteration step
+        if iteration % display_step == 0:
+          print '%04d' % (iteration + 1), "cost=", "{:.9f}".format(avg_cost)
 
-    print "Tuning completed!"
+print "Tuning completed!"
 
-    # Test the model
-    predictions = tf.equal(tf.argmax(model, 1), tf.argmax(y, 1))
-    # Calculate accuracy
-    accuracy = tf.reduce_mean(tf.cast(predictions, "float"))
-    print "Accuracy:", accuracy.eval({x: mnist.test.images, y: mnist.test.labels})
-
-
+        # Test the model
+predictions = tf.equal(tf.argmax(model, 1), tf.argmax(y, 1))
+        # Calculate accuracy
+accuracy = tf.reduce_mean(tf.cast(predictions, "float"))
+print "Accuracy:", accuracy.eval({x: mnist.test.images, y: mnist.test.labels})
