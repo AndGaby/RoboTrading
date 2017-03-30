@@ -1,12 +1,9 @@
 package br.com.robotrading.web.model;
 
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -16,32 +13,28 @@ public class Cliente {
 
 	@Id
 	@GeneratedValue
-	private Long IdCli;
+	private Long idCli;
 
 	@Length(min = 3, max = 45)
 	private String nomeCli;
-
-	// @NotBlank
-	// @DateTimeFormat(iso = ISO.DATE)
-	private LocalDate DataNascCli;
 
 	@NotBlank
 	@Length(min = 3, max = 10)
 	private String userNameCli;
 
-	// @NotBlank
-	// @Length(min = 4, max = 30)
+	@NotBlank
+	@Length(min = 4, max = 30)
 	private String emailCli;
 
-	// @NotBlank
+	@NotBlank
 	private String passwordCli;
 
-	public Long getIdCli() {
-		return IdCli;
+	public Long getidCli() {
+		return idCli;
 	}
 
-	public void setIdCli(Long idCli) {
-		IdCli = idCli;
+	public void setidCli(Long idCli) {
+		this.idCli = idCli;
 	}
 
 	public String getNomeCli() {
@@ -50,14 +43,6 @@ public class Cliente {
 
 	public void setNomeCli(String nomeCli) {
 		this.nomeCli = nomeCli;
-	}
-
-	public LocalDate getDataNascCli() {
-		return DataNascCli;
-	}
-
-	public void setDataNascCli(LocalDate dataNascCli) {
-		DataNascCli = dataNascCli;
 	}
 
 	public String getUserNameCli() {
