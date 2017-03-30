@@ -86,7 +86,7 @@ public class ArtigosController {
 		findArtigo(id);
 
 		if (result.hasErrors()) {
-			mav = new ModelAndView("robos/edit");
+			mav = new ModelAndView("tutoriais/edit");
 		} else {
 			artigoDAO.save(artigos);
 			mav = new ModelAndView("artigos/show");
@@ -102,7 +102,7 @@ public class ArtigosController {
 		findArtigo(id);
 		artigoDAO.delete(id);
 
-		ModelAndView mav = new ModelAndView("redirect:/robos/listar");
+		ModelAndView mav = new ModelAndView("redirect:/tutoriais/listar");
 		attrs.addFlashAttribute("msg", "Artigo deletado com sucesso");
 
 		return mav;
