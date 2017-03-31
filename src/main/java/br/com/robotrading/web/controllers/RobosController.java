@@ -65,21 +65,21 @@ public class RobosController {
 	}
 
 	@GetMapping("/{id}")
-	public ModelAndView show(@PathVariable("id") Integer id) {
+	public ModelAndView show(@PathVariable("id") Long id) {
 		ModelAndView mav = new ModelAndView("robos/show");
 		mav.addObject("robo", findRobo(id));
 		return mav;
 	}
 
 	@GetMapping("/{id}/edit")
-	public ModelAndView edit(@PathVariable("id") Integer id) {
+	public ModelAndView edit(@PathVariable("id") Long id) {
 		ModelAndView mav = new ModelAndView("robos/edit");
 		mav.addObject("robo", findRobo(id));
 		return mav;
 	}
 
 	@PostMapping("/{id}")
-	public ModelAndView update(@PathVariable("id") Integer id, @Valid Robo robo, BindingResult result,
+	public ModelAndView update(@PathVariable("id") Long id, @Valid Robo robo, BindingResult result,
 			RedirectAttributes attrs) {
 		ModelAndView mav = null;
 
@@ -98,7 +98,7 @@ public class RobosController {
 	}
 
 	@GetMapping("/{id}/delete")
-	public ModelAndView destroy(@PathVariable("id") Integer id, RedirectAttributes attrs) {
+	public ModelAndView destroy(@PathVariable("id") Long id, RedirectAttributes attrs) {
 		findRobo(id);
 		robosDAO.delete(id);
 
@@ -108,7 +108,7 @@ public class RobosController {
 		return mav;
 	}
 
-	private Robo findRobo(Integer id) {
+	private Robo findRobo(Long id) {
 		if (robosDAO.exists(id)) {
 			return robosDAO.findOne(id);
 		}

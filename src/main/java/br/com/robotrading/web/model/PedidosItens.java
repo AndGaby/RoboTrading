@@ -1,9 +1,14 @@
 package br.com.robotrading.web.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class PedidosItens {
+public class PedidosItens implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Robo robo;
 
 	public PedidosItens(Robo robo) {
