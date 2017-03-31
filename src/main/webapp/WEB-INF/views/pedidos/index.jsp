@@ -1,45 +1,46 @@
 <%@ include file="../template/header.jsp"%>
 
 <body>
+
 	<div class="container">
-		<%@ include file="barra-menu-admin.jsp"%>
 		<div class="row">
 			<div class="box">
 				<div class="col-md-12 text-center">
-					<c:forEach items="${robos}" var="robo">
-						<div class="col-md-5 text-center">
-								<div class="panel panel-primary">
-									<h3>
-										<font size="3" color="000000"><span
-											class="glyphicon glyphicon-signal"></span></font> <small>${robo.nome}</small>
-										<br>
-									</h3>
-									<p align="center">
-										<img class="img-responsive img-border img-left"
-											src="/resources/img/img5.jpg" alt="">
-									</p>
-									<br> <br>
-
-									<div class="form-group col-lg-0">
-										<h6>
-											Quantidade: <input type="number" class="btn btn-default"
-												name="quantity" value="0" min="1" max="50"></input>
-										</h6>
-										<h4>
-											Preço:<font color="#228B22"> ${robo.preco} 
-										</h4>
-										</font>
-									</div>
-
-									<div class="form-group col-lg-0">
-										
-										<a href= "./pedido/new" type="button" class="btn btn-success">Comprar</a></td>
-										<a href= "./Estatisticas/" type="button" class="btn btn-primary">Estatísticas</a></td>
-									</div>
-								</div>
-						</div>
-
-					</c:forEach>
+					<h2 class="intro-text text-center">
+						Seu <strong>Carrinho</strong>
+					</h2>
+					<div class="panel panel-success">
+						<table class="table table-hover">
+							<thead>
+								<tr bgcolor="#EEE9E9">
+									<th>Nome</th>
+									<th>Preço</th>
+									<th>Quantidade</th>
+									<th>Total</th>
+									<th>Remover</th>
+								</tr>
+							</thead>
+							<c:forEach items="${pedido.itens}" var="item">
+								<tr>
+									<th>${item.key.robo.nome}</th>
+									<th>${item.key.robo.preco}</th>
+									<th>${item.value}</th>
+									<th>${item.value * item.key.robo.preco}</th>
+									<th>Remover</th>
+								</tr>
+							</c:forEach>
+						</table>
+							Valor total: ${pedido.total}
+					</div>
+					<table class="table table-hover">
+						<tr>
+							<th><a href="" class="btn btn-success"> <img
+									src="resources/img/carrinho.jpg"> Finalizar Compra
+							</a></th>
+							<th><a href="./robos" class="btn btn-warning"><img
+									src="resources/img/adicionar.jpg"> Adicionar Robô</a></th>
+						</tr>
+					</table>
 				</div>
 			</div>
 		</div>

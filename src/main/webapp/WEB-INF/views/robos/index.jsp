@@ -7,7 +7,7 @@
 			<div class="box">
 				<div class="col-md-12 text-center">
 					<c:forEach items="${robos}" var="robo">
-						<form action="./pedidos/new" method="POST">
+						<form action="./pedidos/add" method="POST">
 							<div class="col-md-6 text-center">
 								<div class="panel panel-primary col-md-12">
 									<div class="titulo col-md-12">
