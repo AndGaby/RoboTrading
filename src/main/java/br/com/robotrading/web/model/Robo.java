@@ -1,5 +1,6 @@
 package br.com.robotrading.web.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Robos")
-public class Robo {
+public class Robo implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@GeneratedValue
 	@Id
