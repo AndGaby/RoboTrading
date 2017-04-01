@@ -1,10 +1,11 @@
 from keras.layers.core import Dense, Activation, Dropout
 from keras.layers.recurrent import LSTM
 from keras.models import Sequential
+import keras.models as km
 import lstm, time #helper libraries
 
 #Step 1 Load Data
-X_train, y_train, X_test, y_test = lstm.load_data('itau_fechamento_02-02-2019_06-03-2017.csv', 50, True)
+X_train, y_train, X_test, y_test = lstm.load_data('sp500.csv', 50, True)
 
 #Step 2 Build Model
 model = Sequential()
@@ -38,4 +39,5 @@ model.fit(
 
 #Step 4 - Plot the predictions!
 predictions = lstm.predict_sequences_multiple(model, X_test, 50, 50)
+#km.save_model(model,'/mnt/c/Users/CaiquedosSantosCoelh/Desktop',True)
 lstm.plot_results_multiple(predictions, y_test, 50)
