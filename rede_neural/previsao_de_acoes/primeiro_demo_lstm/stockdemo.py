@@ -1,10 +1,11 @@
 from keras.layers.core import Dense, Activation, Dropout
 from keras.layers.recurrent import LSTM
 from keras.models import Sequential
-import lstm, time #helper libraries
+import keras.models as km
+import lstm, time , os #helper libraries
 
 #Step 1 Load Data
-X_train, y_train, X_test, y_test = lstm.load_data('itau_fechamento_02-02-2019_06-03-2017.csv', 50, True)
+X_train, y_train, X_test, y_test = lstm.load_data('itau_fechamento_02-02-2009_06-03-2017.csv', 50, True)
 
 #Step 2 Build Model
 model = Sequential()
@@ -25,7 +26,7 @@ model.add(Dense(
 model.add(Activation('linear'))
 
 start = time.time()
-model.compile(loss='mse', optimizer='rmsprop')
+model.compile(loss='mse', optimizer='rmsprop',metrics=['accuracy'])
 print 'compilation time : ', time.time() - start
 
 #Step 3 Train the model
@@ -34,8 +35,20 @@ model.fit(
     y_train,
     batch_size=512,
     nb_epoch=1,
-    validation_split=0.05)
+    validation_split=0.05,
+    validation_data=(X_test, y_test))
+
+#Step 4 - evaluates the model
+score, acc = model.evaluate(
+                        X_test,
+                        y_test,
+                        batch_size=512)
+#km.save_model(model,'/mnt/c/Users/CaiquedosSantosCoelh/Desktop',True)
+print '%s: %.2f%% ' % ('Score',score*100)
+print '%s: %.2f%% ' % ('Accuracy',acc*100)
 
 #Step 4 - Plot the predictions!
 predictions = lstm.predict_sequences_multiple(model, X_test, 50, 50)
 lstm.plot_results_multiple(predictions, y_test, 50)
+#requires h5py
+#km.save_model(model,os.path.abspath("primeiro_demo_lstm"))
