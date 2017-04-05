@@ -107,7 +107,14 @@ public class RobosController {
 
 		return mav;
 	}
+	@GetMapping("/estatisticas/{id}")
+	public ModelAndView staticRobo(@PathVariable("id") Long id) {
+		ModelAndView mav = new ModelAndView("robos/estatisticas");
 
+		return mav;
+	}
+	
+	
 	private Robo findRobo(Long id) {
 		if (robosDAO.exists(id)) {
 			return robosDAO.findOne(id);
