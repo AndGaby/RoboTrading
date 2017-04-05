@@ -1,3 +1,4 @@
+
 <%@ include file="../template/header.jsp"%>
 
 <body>
@@ -5,7 +6,7 @@
 		<%@ include file="barra-menu-admin.jsp"%>
 		<div class="row">
 			<div class="box">
-				<div class="col-md-12 text-center">
+				<div class="col-lg-12 text-center">
 					<spring:hasBindErrors name="robo">
 						<c:forEach var="error" items="${errors.allErrors}">
 							<b><spring:message message="${error}" /></b>
@@ -14,16 +15,41 @@
 					</spring:hasBindErrors>
 					<form:form action="/robos/${robo.id}" method="POST"
 						commandName="robo">
-						<label for="nome">Nome:</label>
-						<form:input path="nome" />
-						<br>
-						<label for="linkImg">Link Imagem:</label>
-						<form:input path="linkImg" />
-						<br>
-						<label for="preco">Preço:</label>
-						<form:input path="preco" />
-						<br>
-						<form:button>Editar</form:button>
+						<hr>
+						<h2 class="intro-text text-center">
+							Formulário <strong>Robô</strong>
+						</h2>
+						<hr>
+						<p align="center">Preencha corretamente os campos abaixo:</p>
+						<div class="row">
+							<table align="center">
+
+								<tr>
+									<td><br> <label for="nome"> Nome: </label></td>
+									<td><br> <form:input path="nome" type="text"
+											class="form-control" /></td>
+								</tr>
+								<tr>
+									<td><br> <label for="linkImg"> Link Imagem: </label>
+									</td>
+									<td><br> <form:input path="linkImg" type="text"
+											class="form-control" /></td>
+								</tr>
+								<tr>
+									<td><br> <label for="preco"> Preço: </label></td>
+									<td><br> <form:input path="preco" type="text"
+											class="form-control" /></td>
+
+								</tr>
+								<tr>
+									<td><br></td>
+									<td><br></td>
+									<td><form:button type="submit" class="btn btn-success">Salvar</form:button>
+										<form:button type="reset" class="btn btn-primary">Limpar</form:button>
+									</td>
+								</tr>
+							</table>
+						</div>
 					</form:form>
 				</div>
 			</div>

@@ -25,7 +25,7 @@ public class ClientesController {
 	
 	@GetMapping("/new")
 	public ModelAndView newObj(Cliente clientes) {
-		ModelAndView mav = new ModelAndView("cliente/form");
+		ModelAndView mav = new ModelAndView("clientes/form");
 		mav.addObject("clientes", clientes);
 		return mav;
 	}	
@@ -39,7 +39,7 @@ public class ClientesController {
 			mav.addObject("msg", "Campos invalidos");
 		} else {
 			clientesDAO.save(cliente);
-			mav = new ModelAndView("redirect:/cliente");
+			mav = new ModelAndView("redirect:/clientes");
 			attrs.addFlashAttribute("msg", "Cliente criado com sucesso");
 		}
 		return mav;
@@ -47,14 +47,14 @@ public class ClientesController {
 	
 	@GetMapping("/{idCli}")
 	public ModelAndView show(@PathVariable("idCli") Long idCli) {
-		ModelAndView mav = new ModelAndView("cliente/show");
+		ModelAndView mav = new ModelAndView("clientes/show");
 		mav.addObject("clientes", findCliente(idCli));
 		return mav;
 	}
 	
 	@GetMapping("/{idCli}/edit")
 	public ModelAndView edit(@PathVariable("idCli") Long idCli) {
-		ModelAndView mav = new ModelAndView("cliente/edit");
+		ModelAndView mav = new ModelAndView("clientes/edit");
 		mav.addObject("clientes", findCliente(idCli));
 		return mav;
 	}
@@ -67,10 +67,10 @@ public class ClientesController {
 		findCliente(idCli);
 
 		if (result.hasErrors()) {
-			mav = new ModelAndView("cliente/edit");
+			mav = new ModelAndView("clientes/edit");
 		} else {
 			clientesDAO.save(clientes);
-			mav = new ModelAndView("cliente/show");
+			mav = new ModelAndView("clientes/show");
 			attrs.addFlashAttribute("msg", "Dados atualizado com sucesso");
 		}
 		
@@ -83,7 +83,7 @@ public class ClientesController {
 		findCliente(idCli);
 		clientesDAO.delete(idCli);
 
-		ModelAndView mav = new ModelAndView("redirect:/cliente");
+		ModelAndView mav = new ModelAndView("redirect:/clientes");
 		attrs.addFlashAttribute("msg", "Cliente deletado com sucesso");
 
 		return mav;

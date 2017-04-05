@@ -9,3 +9,4 @@
 		</div>
 	</footer>
 </body>
+<script src="/resources/js/app.js"></script>
