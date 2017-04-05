@@ -20,7 +20,7 @@
 
 			<!-- /.navbar-collapse -->
 		</div>
-		<div>
+		
 			<!-- /.container -->
 		</nav>
 
@@ -28,9 +28,8 @@
 
 			<div class="row">
 				<div class="box">
-					<div class="col-lg-12 text-center" style="heigth: 50px;">
 
-
+					<form:form action="/clientes" method="POST" commandName="cliente">
 						<h2 class="intro-text text-center">
 							Formulário <strong>Investidor</strong>
 						</h2>
@@ -38,100 +37,67 @@
 						<div>
 							<p align="center">Preencha corretamente os campos abaixo:</p>
 						</div>
-						<center>
-							<form role="form">
 
 								<div class="row">
-									<table name="tab_01">
+									<table align="center">
 										<tr>
-
-											<div class="form-group col-lg-0">
+		
 												<td><br> <label> Nome: </label></td>
-												<td><br> <input type="text" size="35"
-													class="form-control" id="nome" name="nomeCli" /></td>
-											</div>
-
+												<td><br> <input type="text" size="35" class="form-control" id="nome" name="nomeCli" /></td>
 										</tr>
 
 										<tr>
-
-											<div class="form-group col-lg-4">
 												<td><br> <label> Nome de Usuário: </label></td>
-												<td><br> <input type="text" class="form-control"
-													id="userName" name="userNameCli" /></td>
-											</div>
+												<td><br> <input type="text" class="form-control" id="userName" name="userNameCli" /></td>	
 										</tr>
 
 										<tr>
-											<div class="form-group col-lg-4">
+											
 												<td><br> <label> Email: </label></td>
-
 												<td><br>
 												<input type="text" class="form-control" id="email"
 													name="emailCli" aria-describedby="basic-addon1"
 													placeholder="nome@email.com" /></td>
-											</div>
 										</tr>
 
 										<tr>
-											<div class="form-group col-lg-4">
 												<td><br> <label> Senha: </label></td>
 												<td><br> <input class="form-control" id="senha"
 													type="password" name="passwordCli" /></td>
-											</div>
 
 										</tr>
-
-
 										<tr>
-											<div class="form-group col-lg-4"></div>
-
 
 										</tr>
 
 										<tr>
-											<div class="form-group col-lg-4"></div>
-
 
 										</tr>
 
 										<tr>
-											<div class="form-group col-lg-4"></div>
-
-
 										</tr>
-
-
-
-									</table>
-
-									<table name="tab_02">
+									
 										<tr>
-											<div class="form-group col-lg-0">
+												<td><br></td>
+												<td><br></td>
+												<td><br></td>
 												<td>
 													<button type="submit" class="btn btn-success">Salvar</button>
-												</td>
-											</div>
-
-
-											<div class="form-group col-lg-4">
-												<td>
+												
 													<button type="reset" class="btn btn-primary">Limpar</button>
 												</td>
-											</div>
+											
 										</tr>
 									</table>
 
 
 
 								</div>
-							</form>
-						</center>
+							</form:form>
+						
 					</div>
 				</div>
 			</div>
-
-		</div>
 
 	</form>
 </body>
