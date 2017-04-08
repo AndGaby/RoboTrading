@@ -1,14 +1,21 @@
 package br.com.robotrading.web.controllers;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -21,6 +28,8 @@ import br.com.robotrading.web.model.Robo;
 public class RobosController {
 
 	private RobosDAO robosDAO;
+	@Autowired
+	private Environment env;
 
 	@Autowired
 	public RobosController(RobosDAO robosDAO) {
@@ -49,20 +58,25 @@ public class RobosController {
 	}
 
 	@PostMapping
-	public ModelAndView create(@Valid Robo robo, BindingResult result, RedirectAttributes attrs) {
+	public ModelAndView create(@Valid Robo robo, BindingResult result, 
+								RedirectAttributes attrs,
+								@RequestParam("imagem-robo") MultipartFile imagemRobo) {
 		ModelAndView mav = null;
-
+		
 		if (result.hasErrors()) {
 			mav = newObj(robo);
 			mav.addObject("msg", "Campos invalidos");
 		} else {
-			robosDAO.save(robo);
+			Robo newRobo = robosDAO.save(robo);
+			newRobo.setLinkImg(handleFileUpload(imagemRobo,newRobo.getId()));
+			robosDAO.save(newRobo);
 			mav = new ModelAndView("redirect:/robos/listar");
 			attrs.addFlashAttribute("msg", "Robô criado com sucesso");
 		}
 
 		return mav;
 	}
+
 
 	@GetMapping("/{id}")
 	public ModelAndView show(@PathVariable("id") Long id) {
@@ -99,12 +113,14 @@ public class RobosController {
 
 	@GetMapping("/{id}/delete")
 	public ModelAndView destroy(@PathVariable("id") Long id, RedirectAttributes attrs) {
-		findRobo(id);
+		Robo robo = findRobo(id);
+		File image = new File(env.getProperty("folder.uploaded.images" ) + robo.getLinkImg());
 		robosDAO.delete(id);
-
+		if(image.exists())
+			image.delete();
 		ModelAndView mav = new ModelAndView("redirect:/robos/listar");
 		attrs.addFlashAttribute("msg", "Robô deletado com sucesso");
-
+		
 		return mav;
 	}
 	@GetMapping("/estatisticas/{id}")
@@ -122,6 +138,29 @@ public class RobosController {
 		throw new RoboNaoExisteException();
 	}
 
+	private String handleFileUpload(MultipartFile imagemRobo, Long idRobo) {
+		
+		String originalFilename = imagemRobo.getOriginalFilename();
+		String fileExtension = originalFilename.substring(
+							originalFilename.lastIndexOf("."));
+		String fullPathFileLocation = env.getProperty("folder.uploaded.images");
+		String fileName = "image_upload_robo_id_" + idRobo + fileExtension;
+		File file = null;
+		try {
+			file = new File(fullPathFileLocation + fileName);
+			if(!file.exists())
+				file.createNewFile();
+			FileOutputStream fos = new FileOutputStream(file); 
+		    fos.write(imagemRobo.getBytes());
+		    fos.close(); 
+		} catch (IllegalStateException | IOException e) {
+			e.printStackTrace();
+		}
+		if(file.exists())
+			return fileName;
+		else 
+			return "Error";
+	}
 	// @InitBinder
 	// public void initBinder(WebDataBinder binder) {
 	// binder.setValidator(new RoboValidator());

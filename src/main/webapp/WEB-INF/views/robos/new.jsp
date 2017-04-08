@@ -12,7 +12,7 @@
 							<br />
 						</c:forEach>
 					</spring:hasBindErrors>
-					<form:form action="/robos" method="POST" commandName="robo">
+					<form:form name="form1" action="/robos" method="POST" commandName="robo" enctype="multipart/form-data">
 						<hr>
 						<h2 class="intro-text text-center">
 							Formulário <strong>Robô</strong>
@@ -28,16 +28,18 @@
 											class="form-control" /></td>
 								</tr>
 								<tr>
-									<td><br> <label for="linkImg"> Link Imagem: </label>
-									</td>
-									<td><br> <form:input path="linkImg" type="text"
-											class="form-control" /></td>
-								</tr>
-								<tr>
 									<td><br> <label for="preco"> Preço: </label></td>
 									<td><br> <form:input path="preco" type="text"
 											class="form-control" /></td>
 
+								</tr>
+								<tr>
+									<td><br> <label for="imagem"> Imagem:  </label>
+									</td>
+									<td>
+										<br> 
+										<input type='file' id="imagem-robo" name="imagem-robo" accept="image/*"/>
+									</td>
 								</tr>
 								<tr>
 									<td><br></td>

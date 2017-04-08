@@ -20,7 +20,7 @@
 									<div class="imagem col-md-12">
 										<p align="center">
 											<img class="img-responsive img-border img-left"
-												src="/resources/img/img5.jpg" alt="">
+												src="/resources/imagens_robo/${robo.linkImg}" alt="">
 										</p>
 										<br> <br>
 									</div>
