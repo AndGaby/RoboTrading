@@ -44,19 +44,19 @@ public class ArtigosController {
 	@GetMapping("/new")
 	public ModelAndView newObj(Artigo artigos) {
 		ModelAndView mav = new ModelAndView("artigos/new");
-		mav.addObject("artigos", artigos);
+		mav.addObject("artigo", artigos);
 		return mav;
 	}
 
 	@PostMapping
-	public ModelAndView create(@Valid Artigo artigos, BindingResult result, RedirectAttributes attrs) {
+	public ModelAndView create(@Valid Artigo artigo, BindingResult result, RedirectAttributes attrs) {
 		ModelAndView mav = null;
 
 		if (result.hasErrors()) {
-			mav = newObj(artigos);
+			mav = newObj(artigo);
 			mav.addObject("msg", "Campos invalidos");
 		} else {
-			artigoDAO.save(artigos);
+			artigoDAO.save(artigo);
 			mav = new ModelAndView("redirect:/artigos/listar");
 			attrs.addFlashAttribute("msg", "Artigo criado com sucesso");
 		}
@@ -67,14 +67,14 @@ public class ArtigosController {
 	@GetMapping("/{id}")
 	public ModelAndView show(@PathVariable("id") Long id) {
 		ModelAndView mav = new ModelAndView("artigos/show");
-		mav.addObject("artigos", findArtigo(id));
+		mav.addObject("artigo", findArtigo(id));
 		return mav;
 	}
 
 	@GetMapping("/{id}/edit")
 	public ModelAndView edit(@PathVariable("id") Long id) {
 		ModelAndView mav = new ModelAndView("artigos/edit");
-		mav.addObject("artigos", findArtigo(id));
+		mav.addObject("artigo", findArtigo(id));
 		return mav;
 	}
 
@@ -86,7 +86,7 @@ public class ArtigosController {
 		findArtigo(id);
 
 		if (result.hasErrors()) {
-			mav = new ModelAndView("tutoriais/edit");
+			mav = new ModelAndView("artigos/edit");
 		} else {
 			artigoDAO.save(artigos);
 			mav = new ModelAndView("artigos/show");
@@ -102,7 +102,7 @@ public class ArtigosController {
 		findArtigo(id);
 		artigoDAO.delete(id);
 
-		ModelAndView mav = new ModelAndView("redirect:/tutoriais/listar");
+		ModelAndView mav = new ModelAndView("redirect:/artigos/listar");
 		attrs.addFlashAttribute("msg", "Artigo deletado com sucesso");
 
 		return mav;

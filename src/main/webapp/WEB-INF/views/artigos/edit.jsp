@@ -12,7 +12,7 @@
 							<br />
 						</c:forEach>
 					</spring:hasBindErrors>
-					<form:form action="/artigos" method="POST" commandName="artigo">
+					<form:form action="/artigos/${artigo.id }" method="POST" commandName="artigo">
 						<hr>
 						<h2 class="intro-text text-center">
 							Postar <strong>Artigo</strong>

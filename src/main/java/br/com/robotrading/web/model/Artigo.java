@@ -12,22 +12,15 @@ public class Artigo {
 
 	@GeneratedValue
 	@Id
-	private Long artigoID;
+	private Long id;
 
 	private String titulo;
 	
 	private String linkArtigo;
 
 	@Lob
-	private Byte[] textoArtigo;
+	private String textoArtigo;
 
-	public Long getArtigoID() {
-		return artigoID;
-	}
-
-	public void setArtigoID(Long artigoID) {
-		this.artigoID = artigoID;
-	}
 
 	public String getTitulo() {
 		return titulo;
@@ -45,12 +38,21 @@ public class Artigo {
 		this.linkArtigo = linkArtigo;
 	}
 
-	public Byte[] getTextoArtigo() {
+	public String getTextoArtigo() {
 		return textoArtigo;
 	}
 
-	public void setTextoArtigo(Byte[] textoArtigo) {
+	public void setTextoArtigo(String textoArtigo) {
 		this.textoArtigo = textoArtigo;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 
 }

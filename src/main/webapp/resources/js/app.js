@@ -1,12 +1,17 @@
-function edit() {
-	$('.click2edit').summernote({
-		focus : true
+$(document).ready(function() {
+	$('#summernote').summernote({
+		height: 300
+	});
+});
+
+var editarTexto = function() {
+	$('#summernote').summernote({
+		focus : true,
+		height: 300
 	});
 };
 
-function save() {
-	var makrup = $('.click2edit').summernote('code');
-	$('.click2edit').summernote('destroy');
+var mostrarTexto = function() {
+	var makrup = $('#summernote').summernote('code');
+	$('#summernote').summernote('destroy');
 };
-
-console.log("teste")

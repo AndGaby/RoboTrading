@@ -21,6 +21,11 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
 	rel="stylesheet" type="text/css">
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css"
+	rel="stylesheet">
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>
 </head>
 <body>
 	<div class="brand">Mammon Trading</div>
@@ -40,5 +45,6 @@
 		</ul>
 	</div>
 	</nav>
+<script src="/resources/js/app.js"></script>
 </body>
 </html>
