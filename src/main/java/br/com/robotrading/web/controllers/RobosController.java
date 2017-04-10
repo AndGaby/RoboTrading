@@ -94,7 +94,7 @@ public class RobosController {
 
 	@PostMapping("/{id}")
 	public ModelAndView update(@PathVariable("id") Long id, @Valid Robo robo, BindingResult result,
-			RedirectAttributes attrs) {
+			RedirectAttributes attrs,@RequestParam("imagem-robo") MultipartFile imagemRobo) {
 		ModelAndView mav = null;
 
 		findRobo(id);
@@ -103,6 +103,8 @@ public class RobosController {
 			mav = new ModelAndView("robos/edit");
 		} else {
 			robosDAO.save(robo);
+			if(imagemRobo != null)
+				handleFileUpload(imagemRobo,id);
 			mav = new ModelAndView("robos/show");
 			attrs.addFlashAttribute("msg", "Robô atualizado com sucesso");
 		}
