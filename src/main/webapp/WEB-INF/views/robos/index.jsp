@@ -19,8 +19,9 @@
 									</div>
 									<div class="imagem col-md-12">
 										<p align="center">
-											<img class="img-responsive img-border img-left"
-												src="/resources/imagens_robo/${robo.linkImg}" alt="">
+											<img class="img-responsive img-border img-center"
+												src="/resources/imagens_robo/${robo.linkImg}" alt=""
+												height="200px" width="300px">
 										</p>
 										<br> <br>
 									</div>
