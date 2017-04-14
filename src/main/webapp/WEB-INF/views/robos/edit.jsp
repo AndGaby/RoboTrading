@@ -14,15 +14,34 @@
 						</c:forEach>
 					</spring:hasBindErrors>
 					<form:form action="/robos/${robo.id}" method="POST"
-						commandName="robo">
+						commandName="robo" enctype="multipart/form-data">
 						<hr>
 						<h2 class="intro-text text-center">
 							Formulário <strong>Robô</strong>
 						</h2>
+						
 						<hr>
 						<p align="center">Preencha corretamente os campos abaixo:</p>
 						<div class="row">
 							<table align="center">
+								<tr>
+									<td><br> <label for="image"> Imagem: </label></td>
+									<td>
+										<p align="right">
+												<img class="img-responsive img-border img-right"
+													src="/resources/imagens_robo/${robo.linkImg}" alt=""
+													height="300px" width="300px">
+											</p>
+									</td>
+								</tr>
+								<tr>
+									<td><br> <label for="imagem"> Mudar Imagem:  </label>
+									</td>
+									<td>
+										<br> 
+										<input type='file' id="imagem-robo" name="imagem-robo" accept="image/*"/>
+									</td>
+								</tr>
 
 								<tr>
 									<td><br> <label for="nome"> Nome: </label></td>
@@ -30,16 +49,9 @@
 											class="form-control" /></td>
 								</tr>
 								<tr>
-									<td><br> <label for="linkImg"> Link Imagem: </label>
-									</td>
-									<td><br> <form:input path="linkImg" type="text"
-											class="form-control" /></td>
-								</tr>
-								<tr>
 									<td><br> <label for="preco"> Preço: </label></td>
 									<td><br> <form:input path="preco" type="text"
 											class="form-control" /></td>
-
 								</tr>
 								<tr>
 									<td><br></td>
@@ -50,6 +62,7 @@
 								</tr>
 							</table>
 						</div>
+						<form:hidden path="linkImg" />
 					</form:form>
 				</div>
 			</div>
