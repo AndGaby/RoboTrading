@@ -19,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.mchange.io.FileUtils;
+
 import br.com.robotrading.web.dao.RobosDAO;
 import br.com.robotrading.web.exception.RoboNaoExisteException;
 import br.com.robotrading.web.model.Robo;
@@ -58,17 +60,16 @@ public class RobosController {
 	}
 
 	@PostMapping
-	public ModelAndView create(@Valid Robo robo, BindingResult result, 
-								RedirectAttributes attrs,
-								@RequestParam("imagem-robo") MultipartFile imagemRobo) {
+	public ModelAndView create(@Valid Robo robo, BindingResult result, RedirectAttributes attrs,
+			@RequestParam("imagem-robo") MultipartFile imagemRobo) {
 		ModelAndView mav = null;
-		
+
 		if (result.hasErrors()) {
 			mav = newObj(robo);
 			mav.addObject("msg", "Campos invalidos");
 		} else {
 			Robo newRobo = robosDAO.save(robo);
-			newRobo.setLinkImg(handleFileUpload(imagemRobo,newRobo.getId(),null));
+			newRobo.setLinkImg(handleFileUpload(imagemRobo, newRobo.getId(), null));
 			robosDAO.save(newRobo);
 			mav = new ModelAndView("redirect:/robos/listar");
 			attrs.addFlashAttribute("msg", "Robô criado com sucesso");
@@ -76,7 +77,6 @@ public class RobosController {
 
 		return mav;
 	}
-
 
 	@GetMapping("/{id}")
 	public ModelAndView show(@PathVariable("id") Long id) {
@@ -94,7 +94,7 @@ public class RobosController {
 
 	@PostMapping("/{id}")
 	public ModelAndView update(@PathVariable("id") Long id, @Valid Robo robo, BindingResult result,
-			RedirectAttributes attrs,@RequestParam("imagem-robo") MultipartFile imagemRobo) {
+			RedirectAttributes attrs, @RequestParam("imagem-robo") MultipartFile imagemRobo) {
 		ModelAndView mav = null;
 
 		findRobo(id);
@@ -102,9 +102,9 @@ public class RobosController {
 		if (result.hasErrors()) {
 			mav = new ModelAndView("robos/edit");
 		} else {
-			if(imagemRobo != null)
-				robo.setLinkImg(handleFileUpload(imagemRobo,id,robo.getLinkImg()));
-				
+			if (imagemRobo != null)
+				robo.setLinkImg(handleFileUpload(imagemRobo, id, robo.getLinkImg()));
+
 			robosDAO.save(robo);
 			mav = new ModelAndView("robos/show");
 			attrs.addFlashAttribute("msg", "Robô atualizado com sucesso");
@@ -117,23 +117,23 @@ public class RobosController {
 	@GetMapping("/{id}/delete")
 	public ModelAndView destroy(@PathVariable("id") Long id, RedirectAttributes attrs) {
 		Robo robo = findRobo(id);
-		File image = new File(env.getProperty("folder.uploaded.images" ) + robo.getLinkImg());
+		File image = new File(env.getProperty("folder.uploaded.images") + robo.getLinkImg());
 		robosDAO.delete(id);
-		if(image.exists())
+		if (image.exists())
 			image.delete();
 		ModelAndView mav = new ModelAndView("redirect:/robos/listar");
 		attrs.addFlashAttribute("msg", "Robô deletado com sucesso");
-		
+
 		return mav;
 	}
+
 	@GetMapping("/estatisticas/{id}")
 	public ModelAndView staticRobo(@PathVariable("id") Long id) {
 		ModelAndView mav = new ModelAndView("robos/estatisticas");
 
 		return mav;
 	}
-	
-	
+
 	private Robo findRobo(Long id) {
 		if (robosDAO.exists(id)) {
 			return robosDAO.findOne(id);
@@ -141,33 +141,42 @@ public class RobosController {
 		throw new RoboNaoExisteException();
 	}
 
-	private String handleFileUpload(MultipartFile imagemRobo, Long idRobo,String oldImageName) {
-		
-		String originalFilename = imagemRobo.getOriginalFilename();
-		String fileExtension = originalFilename.substring(
-							originalFilename.lastIndexOf("."));
+	private String handleFileUpload(MultipartFile imagemRobo, Long idRobo, String oldImageName) {
+
 		String fullPathFileLocation = env.getProperty("folder.uploaded.images");
+		String originalFilename;
+		File defaultImage = null;
+		if (imagemRobo.getSize() == 0) {
+			originalFilename = env.getProperty("default.image.name");
+			defaultImage = new File(fullPathFileLocation + originalFilename);
+		}else{
+			originalFilename = imagemRobo.getOriginalFilename();
+		}
+		String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
 		String fileName = "image_upload_robo_id_" + idRobo + fileExtension;
 		File file = null;
 		try {
 			file = new File(fullPathFileLocation + fileName);
-			if(!file.exists())
+			if (!file.exists())
 				file.createNewFile();
-			FileOutputStream fos = new FileOutputStream(file); 
-		    fos.write(imagemRobo.getBytes());
-		    fos.close(); 
-		    //para nao duplicar imagens para um mesmo robo
-		    if(oldImageName != null &&
-		    		!oldImageName.equals(fileName)){
-		    	File oldImage = new File(fullPathFileLocation + oldImageName);
-		    	oldImage.delete();
-		    }
+			FileOutputStream fos = new FileOutputStream(file);
+			if(defaultImage != null){
+				fos.write(FileUtils.getBytes(defaultImage));
+			}else{
+				fos.write(imagemRobo.getBytes());
+			}
+			fos.close();
+			// para nao duplicar imagens para um mesmo robo
+			if (oldImageName != null && !oldImageName.equals(fileName)) {
+				File oldImage = new File(fullPathFileLocation + oldImageName);
+				oldImage.delete();
+			}
 		} catch (IllegalStateException | IOException e) {
 			e.printStackTrace();
 		}
-		if(file.exists())
+		if (file.exists())
 			return fileName;
-		else 
+		else
 			return "Error";
 	}
 	// @InitBinder
