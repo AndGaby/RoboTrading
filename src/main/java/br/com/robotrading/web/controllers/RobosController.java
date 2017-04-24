@@ -135,7 +135,7 @@ public class RobosController {
 	}
 
 	private String handleFileUpload(MultipartFile imagemRobo, Long idRobo, String oldImageName) {
-
+		String fullPathFileLocation = env.getProperty("folder.uploaded.images");
 		String originalFilename;
 		File defaultImage = null;
 		if (imagemRobo.getSize() == 0) {
