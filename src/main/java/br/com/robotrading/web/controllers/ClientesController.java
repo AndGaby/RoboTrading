@@ -1,5 +1,6 @@
 package br.com.robotrading.web.controllers;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,18 @@ public class ClientesController {
 
 	@Autowired
 	private ClientesDAO clientesDAO;
-	
+
+	@GetMapping("/login/{id}")
+	public void metodoAuxiliarTeste(@PathVariable("id") Long idCli, HttpSession session) {
+		session.setAttribute("user", findCliente(idCli));
+	}
+
 	@GetMapping("/new")
 	public ModelAndView newObj(Cliente clientes) {
 		ModelAndView mav = new ModelAndView("clientes/form");
 		mav.addObject("clientes", clientes);
 		return mav;
-	}	
+	}
 
 	@PostMapping
 	public ModelAndView create(@Valid Cliente cliente, BindingResult result, RedirectAttributes attrs) {
@@ -39,28 +45,28 @@ public class ClientesController {
 			mav.addObject("msg", "Campos invalidos");
 		} else {
 			clientesDAO.save(cliente);
-			mav = new ModelAndView("redirect:/clientes");
+			mav = new ModelAndView("redirect:/robos");
 			attrs.addFlashAttribute("msg", "Cliente criado com sucesso");
 		}
 		return mav;
 	}
-	
+
 	@GetMapping("/{idCli}")
 	public ModelAndView show(@PathVariable("idCli") Long idCli) {
 		ModelAndView mav = new ModelAndView("clientes/show");
 		mav.addObject("clientes", findCliente(idCli));
 		return mav;
 	}
-	
+
 	@GetMapping("/{idCli}/edit")
 	public ModelAndView edit(@PathVariable("idCli") Long idCli) {
 		ModelAndView mav = new ModelAndView("clientes/edit");
 		mav.addObject("clientes", findCliente(idCli));
 		return mav;
 	}
-	
+
 	@PostMapping("/{idCli}")
-	public ModelAndView update(@PathVariable("idCli") Long idCli, @Valid Cliente clientes, BindingResult result, 
+	public ModelAndView update(@PathVariable("idCli") Long idCli, @Valid Cliente clientes, BindingResult result,
 			RedirectAttributes attrs) {
 		ModelAndView mav = null;
 
@@ -73,11 +79,11 @@ public class ClientesController {
 			mav = new ModelAndView("clientes/show");
 			attrs.addFlashAttribute("msg", "Dados atualizado com sucesso");
 		}
-		
+
 		mav.addObject("clientes", clientes);
 		return mav;
 	}
-	
+
 	@GetMapping("/{idCli}/delete")
 	public ModelAndView destroy(@PathVariable("idCli") Long idCli, RedirectAttributes attrs) {
 		findCliente(idCli);

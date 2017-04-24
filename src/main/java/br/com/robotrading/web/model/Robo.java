@@ -2,15 +2,15 @@ package br.com.robotrading.web.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "Robos")
-public class Robo implements Serializable{
+public class Robo implements Serializable {
 
 	/**
 	 * 
@@ -26,8 +26,6 @@ public class Robo implements Serializable{
 	private String linkImg;
 
 	private BigDecimal preco;
-
-	private Integer contratados;
 
 	public Long getId() {
 		return id;
@@ -62,11 +60,7 @@ public class Robo implements Serializable{
 	}
 
 	public Integer getContratados() {
-		return contratados;
-	}
-
-	public void setContratados(Integer contratados) {
-		this.contratados = contratados;
+		return 0;
 	}
 
 	@Override
@@ -93,4 +87,5 @@ public class Robo implements Serializable{
 			return false;
 		return true;
 	}
+
 }

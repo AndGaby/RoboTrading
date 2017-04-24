@@ -24,8 +24,7 @@
 							<td>${robo.preco}</td>
 						</tr>
 						<tr>
-							<td>Contratados:</td>
-							<td>${robo.contratados}</td>
+							<td><a href="/registros/robos/${robo.id}">Compradores</a></td>
 						</tr>
 					</table>
 				</div>

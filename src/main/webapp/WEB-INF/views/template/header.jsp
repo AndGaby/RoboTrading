@@ -28,23 +28,41 @@
 	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>
 </head>
 <body>
+	<div class="navbar navbar-inverse">
+		<form action="/login" method="POST">
+			<c:if test="${empty user}">
+				<ul class="nav navbar-nav">
+					<li><input type="text" name="email" /></li>
+					<li><input type="password" name="password" /></li>
+					<li><input type="submit" value="logar" /></li>
+					<li><a href="/clientes/new">Cadastrar</a></li>
+				</ul>
+			</c:if>
+			<c:if test="${not empty user}">
+				<ul class="nav navbar-nav">
+					<li><a href="/clientes/${user.id}">${user.nome}</a></li>
+					<li><a href="/login">Deslogar</a></li>
+				</ul>
+			</c:if>
+		</form>
+	</div>
 	<div class="brand">Mammon Trading</div>
 	<div class="address-bar">Robôs para Investimentos</div>
 
-	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">Robô Trading</a>
+	<div class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Robô Trading</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="/">Home</a></li>
+				<li><a href="/robos">Robôs</a></li>
+				<li><a href="/artigos">Artigos</a></li>
+				<li><a href="/tutoriais">Tutoriais</a></li>
+				<li><a href="/contato">Contato</a></li>
+			</ul>
 		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/">Home</a></li>
-			<li><a href="/robos">Robôs</a></li>
-			<li><a href="/artigos">Artigos</a></li>
-			<li><a href="/tutoriais">Tutoriais</a></li>
-			<li><a href="/contato">Contato</a></li>
-		</ul>
 	</div>
-	</nav>
-<script src="/resources/js/app.js"></script>
+	<script src="/resources/js/app.js"></script>
 </body>
 </html>

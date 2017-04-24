@@ -20,21 +20,21 @@
 									<th>Remover</th>
 								</tr>
 							</thead>
-							<c:forEach items="${pedido.itens}" var="item">
+							<c:forEach items="${carrinho.robos}" var="item">
 								<tr>
-									<th>${item.key.robo.nome}</th>
-									<th>${item.key.robo.preco}</th>
+									<th>${item.key.nome}</th>
+									<th>${item.key.preco}</th>
 									<th>${item.value}</th>
-									<th>${item.value * item.key.robo.preco}</th>
+									<th>${item.value * item.key.preco}</th>
 									<th>Remover</th>
 								</tr>
 							</c:forEach>
 						</table>
-							Valor total: ${pedido.total}
+							Valor total: ${carrinho.total}
 					</div>
 					<table class="table table-hover">
 						<tr>
-							<th><a href="" class="btn btn-success"> <img
+							<th><a href="/pedidos/finalizar" class="btn btn-success"> <img
 									src="resources/img/carrinho.jpg"> Finalizar Compra
 							</a></th>
 							<th><a href="./robos" class="btn btn-warning"><img

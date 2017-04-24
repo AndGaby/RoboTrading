@@ -29,7 +29,7 @@
 										<h6>
 											<label for="quantity">Quantidade: </label> <input
 												type="number" class="btn btn-default" name="quantity"
-												value="0" min="1" max="50" /> <input type="hidden"
+												value="1" min="1" max="50" /> <input type="hidden"
 												name="idRobo" value="${robo.id}" />
 										</h6>
 										<h4>
@@ -41,8 +41,8 @@
 
 									<div class="form-group col-md-12">
 										<input type="submit" class="btn btn-success" value="Comprar" />
-										<a href="./robos/estatisticas/${robo.id}" type="button"
-											class="btn btn-primary">Estatísticas</a>
+										<a href="./robos/${robo.id}" type="button"
+											class="btn btn-primary">Detalhes</a>
 									</div>
 								</div>
 							</div>

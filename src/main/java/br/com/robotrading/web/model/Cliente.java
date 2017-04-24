@@ -1,71 +1,57 @@
 package br.com.robotrading.web.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "Clientes")
-public class Cliente {
+public class Cliente implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
-	private Long idCli;
+	private Long id;
 
-	@Length(min = 3, max = 45)
-	private String nomeCli;
+	private String nome;
 
-	@NotBlank
-	@Length(min = 3, max = 10)
-	private String userNameCli;
+	private String email;
 
-	@NotBlank
-	@Length(min = 4, max = 30)
-	private String emailCli;
+	private String password;
 
-	@NotBlank
-	private String passwordCli;
-
-	public Long getidCli() {
-		return idCli;
+	public Long getId() {
+		return id;
 	}
 
-	public void setidCli(Long idCli) {
-		this.idCli = idCli;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getNomeCli() {
-		return nomeCli;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeCli(String nomeCli) {
-		this.nomeCli = nomeCli;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getUserNameCli() {
-		return userNameCli;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUserNameCli(String userNameCli) {
-		this.userNameCli = userNameCli;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getEmailCli() {
-		return emailCli;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setEmailCli(String emailCli) {
-		this.emailCli = emailCli;
-	}
-
-	public String getpasswordCli() {
-		return passwordCli;
-	}
-
-	public void setpasswordCli(String passwordCli) {
-		this.passwordCli = passwordCli;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
