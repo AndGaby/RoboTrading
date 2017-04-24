@@ -19,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.mchange.io.FileUtils;
+
 import br.com.robotrading.web.dao.RobosDAO;
 import br.com.robotrading.web.exception.RoboNaoExisteException;
 import br.com.robotrading.web.model.Robo;
@@ -134,9 +136,15 @@ public class RobosController {
 
 	private String handleFileUpload(MultipartFile imagemRobo, Long idRobo, String oldImageName) {
 
-		String originalFilename = imagemRobo.getOriginalFilename();
+		String originalFilename;
+		File defaultImage = null;
+		if (imagemRobo.getSize() == 0) {
+			originalFilename = env.getProperty("default.image.name");
+			defaultImage = new File(fullPathFileLocation + originalFilename);
+		}else{
+			originalFilename = imagemRobo.getOriginalFilename();
+		}
 		String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
-		String fullPathFileLocation = env.getProperty("folder.uploaded.images");
 		String fileName = "image_upload_robo_id_" + idRobo + fileExtension;
 		File file = null;
 		try {
@@ -144,7 +152,11 @@ public class RobosController {
 			if (!file.exists())
 				file.createNewFile();
 			FileOutputStream fos = new FileOutputStream(file);
-			fos.write(imagemRobo.getBytes());
+			if(defaultImage != null){
+				fos.write(FileUtils.getBytes(defaultImage));
+			}else{
+				fos.write(imagemRobo.getBytes());
+			}
 			fos.close();
 			// para nao duplicar imagens para um mesmo robo
 			if (oldImageName != null && !oldImageName.equals(fileName)) {
