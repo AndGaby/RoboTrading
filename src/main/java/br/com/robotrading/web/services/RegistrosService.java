@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import br.com.robotrading.web.dao.CarrinhoDAO;
 import br.com.robotrading.web.dao.RobosDAO;
 import br.com.robotrading.web.model.Carrinho;
+import br.com.robotrading.web.model.RegistroCliente;
 import br.com.robotrading.web.model.RegistroRobo;
 import br.com.robotrading.web.model.Robo;
 
@@ -26,7 +27,6 @@ public class RegistrosService {
 		List<RegistroRobo> registrosRobos = new ArrayList<>();
 
 		for (Carrinho carrinho : carrinhos) {
-
 			RegistroRobo registroRobo = new RegistroRobo();
 			registroRobo.setRobo(robo);
 			registroRobo.setCliente(carrinho.getCliente());
@@ -37,6 +37,11 @@ public class RegistrosService {
 		}
 
 		return registrosRobos;
+	}
+
+	public List<RegistroCliente> getRegistroCliente(Long id) {
+		List<Carrinho> carrinhos = carrinhoDAO.findByClienteId(id);
+		return null;
 	}
 
 }

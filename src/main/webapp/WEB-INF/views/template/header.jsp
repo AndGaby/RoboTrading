@@ -10,7 +10,7 @@
 <title>Mammon Trading</title>
 <link rel="stylesheet" type="text/css"
 	href="/webjars/bootstrap/css/bootstrap.min.css" />
-<link href="<c:url value='/resources/css/business-casual.css'  />"
+<link href="<c:url value='/resources/css/header.css'  />"
 	rel="stylesheet" />
 <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
 <script type="text/javascript"
@@ -29,40 +29,75 @@
 </head>
 <body>
 	<div class="navbar navbar-inverse">
-		<form action="/login" method="POST">
+		<div class="container-fluid">
+			<div class="col-md-4">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/home">MammonTrading - Logo</a>
+				</div>
+			</div>
 			<c:if test="${empty user}">
-				<ul class="nav navbar-nav">
-					<li><input type="text" name="email" /></li>
-					<li><input type="password" name="password" /></li>
-					<li><input type="submit" value="logar" /></li>
-					<li><a href="/clientes/new">Cadastrar</a></li>
-				</ul>
+				<form action="/login" method="POST">
+					<div class="col-md-offset-8">
+						<ul class="nav navbar-nav">
+							<li><a href="">Cadastre-se</a></li>
+							<li class="dropdown"><a class="dropdown-toggle"
+								data-toggle="dropdown" href="">Entre</a>
+								<ul class="dropdown-menu dropdown-login">
+									<li><input class="form-control" type="text"
+										placeholder="e-mail" /></li>
+									<li><input class="form-control" type="password"
+										placeholder="senha" /></li>
+									<li><input class="btn btn-primary" type="submit"
+										value="Entrar" /></li>
+								</ul></li>
+							<li><a href="">Contato</a></li>
+						</ul>
+					</div>
+				</form>
 			</c:if>
 			<c:if test="${not empty user}">
-				<ul class="nav navbar-nav">
-					<li><a href="/clientes/${user.id}">${user.nome}</a></li>
-					<li><a href="/login">Deslogar</a></li>
-				</ul>
-			</c:if>
-		</form>
-	</div>
-	<div class="brand">Mammon Trading</div>
-	<div class="address-bar">Robôs para Investimentos</div>
-
-	<div class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Robô Trading</a>
+			<div class="col-md-offset-8">
+			
 			</div>
-			<ul class="nav navbar-nav">
-				<li><a href="/">Home</a></li>
-				<li><a href="/robos">Robôs</a></li>
-				<li><a href="/artigos">Artigos</a></li>
-				<li><a href="/tutoriais">Tutoriais</a></li>
-				<li><a href="/contato">Contato</a></li>
-			</ul>
+			</c:if>
 		</div>
 	</div>
-	<script src="/resources/js/app.js"></script>
+
+	<!-- 	<div class="navbar navbar-inverse"> -->
+	<%-- 		<form action="/login" method="POST"> --%>
+	<%-- 			<c:if test="${empty user}"> --%>
+	<!-- 				<ul class="nav navbar-nav"> -->
+	<!-- 					<li><input type="text" name="email" /></li> -->
+	<!-- 					<li><input type="password" name="password" /></li> -->
+	<!-- 					<li><input type="submit" value="logar" /></li> -->
+	<!-- 					<li><a href="/clientes/new">Cadastrar</a></li> -->
+	<!-- 				</ul> -->
+	<%-- 			</c:if> --%>
+	<%-- 			<c:if test="${not empty user}"> --%>
+	<!-- 				<ul class="nav navbar-nav"> -->
+	<%-- 					<li><a href="/clientes/${user.id}">${user.nome}</a></li> --%>
+	<!-- 					<li><a href="/login">Deslogar</a></li> -->
+	<!-- 				</ul> -->
+	<%-- 			</c:if> --%>
+	<%-- 		</form> --%>
+	<!-- 	</div> -->
+	<!-- 	<div class="brand">Mammon Trading</div> -->
+	<!-- 	<div class="address-bar">Robôs para Investimentos</div> -->
+
+	<!-- 	<div class="navbar navbar-inverse"> -->
+	<!-- 		<div class="container-fluid"> -->
+	<!-- 			<div class="navbar-header"> -->
+	<!-- 				<a class="navbar-brand" href="#">Robô Trading</a> -->
+	<!-- 			</div> -->
+	<!-- 			<ul class="nav navbar-nav"> -->
+	<!-- 				<li><a href="/">Home</a></li> -->
+	<!-- 				<li><a href="/robos">Robôs</a></li> -->
+	<!-- 				<li><a href="/artigos">Artigos</a></li> -->
+	<!-- 				<li><a href="/tutoriais">Tutoriais</a></li> -->
+	<!-- 				<li><a href="/contato">Contato</a></li> -->
+	<!-- 			</ul> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+	<!-- 	<script src="/resources/js/app.js"></script> -->
 </body>
 </html>

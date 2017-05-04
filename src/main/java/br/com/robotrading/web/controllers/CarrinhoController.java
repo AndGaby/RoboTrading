@@ -1,7 +1,6 @@
 package br.com.robotrading.web.controllers;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 import javax.servlet.http.HttpSession;
 

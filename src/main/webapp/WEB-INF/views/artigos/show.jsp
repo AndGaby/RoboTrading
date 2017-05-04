@@ -2,7 +2,6 @@
 
 <body>
 	<div class="container">
-		<%@ include file="barra-menu-admin.jsp"%>
 		<div class="row">
 			<div class="box">
 				<div class="col-md-offset-2 col-md-8">

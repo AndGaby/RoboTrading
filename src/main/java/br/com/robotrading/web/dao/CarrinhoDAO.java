@@ -27,5 +27,7 @@ public interface CarrinhoDAO extends JpaRepository<Carrinho, Long> {
 	@Query("select s from Carrinho s where KEY(s.robos) = ?1")
 	List<Carrinho> findByRobo(Robo robo);
 	
+	List<Carrinho> findByClienteId(Long id);
+	
 }
 
