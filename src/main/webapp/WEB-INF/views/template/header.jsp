@@ -31,43 +31,36 @@
 </head>
 <body>
 
+	<c:if test="${not empty user}">
+		<ul class="nav navbar-nav">
+			<%@ include file="sidebar.jsp"%>
+		</ul>
+	</c:if>
 	<div class="navbar navbar-inverse">
-		<form action="/login" method="POST">
-			<c:if test="${empty user}">
-				<ul class="nav navbar-nav">
-					<li><input type="text" name="email" /></li>
-					<li><input type="password" name="password" /></li>
-					<li><input type="submit" value="logar" /></li>
-					<li><a href="/clientes/new">Cadastrar</a></li>
-				</ul>
-			</c:if>
-			<c:if test="${not empty user}">
-				<ul class="nav navbar-nav">
-					<%@ include file="sidebar.jsp"%>
-				</ul>
-			</c:if>
-		</form>
-	</div>
-		<div class="brand">Mammon Trading</div>
-		<div class="address-bar">Robôs para Investimentos</div>
-
-		<div class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Robô Trading</a>
-				</div>
+		<div class="container-fluid">
+			<div class="col-md-2 navbar-header">
+				<a class="navbar-brand" href="#">Mammon Trading</a>
+			</div>
+			<div class="col-md-4">
 				<ul class="nav navbar-nav">
 					<li><a href="/">Home</a></li>
 					<li><a href="/robos">Robôs</a></li>
 					<li><a href="/artigos">Artigos</a></li>
 					<li><a href="/tutoriais">Tutoriais</a></li>
-					<li><a href="/contato">Contato</a></li>
 					<c:if test="${not empty user}">
 						<li><a href="#" id="button-toggle">Menu Cliente</a></li>
 					</c:if>
 				</ul>
 			</div>
+			<div class="col-md-offset-3 col-md-3">
+				<ul class="nav navbar-nav">
+					<li><a href="/">Cadastre-se</a></li>
+					<li><a href="/robos">Entre</a></li>
+					<li><a href="/artigos">Contato</a></li>
+				</ul>
+			</div>
 		</div>
+	</div>
 	<script src="/resources/js/app.js"></script>
 	<script>
 		$("#menu-toggle").click(function(e) {
@@ -81,3 +74,4 @@
 	</script>
 </body>
 </html>
+
