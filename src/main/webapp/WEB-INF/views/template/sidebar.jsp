@@ -6,8 +6,8 @@
 			<li><a href="/registros/cliente/${user.id}">Robôs
 					contratados</a></li>
 			<li><a href="#">Pedidos Pendentes</a></li>
-			<li><a href="#">Tutoriais disponí­veis</a></li>
 			<li><a href="#">Configurações da Conta</a></li>
+			<li><a href="#">Contato</a></li>
 			<li><a href="/login">Sair</a></li>
 		</ul>
 		<object data="NewFile.jsp">

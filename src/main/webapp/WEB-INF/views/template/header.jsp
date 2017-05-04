@@ -10,6 +10,8 @@
 <title>Mammon Trading</title>
 <link href="<c:url value='/resources/css/simple-sidebar.css'  />"
 	rel="stylesheet" />
+<link href="<c:url value='/resources/css/login.css'  />"
+	rel="stylesheet" />
 <link href="<c:url value='/resources/css/bootstrap.min.css'  />"
 	rel="stylesheet" />
 <link href="<c:url value='/resources/css/bootstrap.css'  />"
@@ -47,18 +49,23 @@
 					<li><a href="/robos">Robôs</a></li>
 					<li><a href="/artigos">Artigos</a></li>
 					<li><a href="/tutoriais">Tutoriais</a></li>
-					<c:if test="${not empty user}">
-						<li><a href="#" id="button-toggle">Menu Cliente</a></li>
-					</c:if>
 				</ul>
 			</div>
-			<div class="col-md-offset-3 col-md-3">
-				<ul class="nav navbar-nav">
-					<li><a href="/">Cadastre-se</a></li>
-					<li><a href="/robos">Entre</a></li>
-					<li><a href="/artigos">Contato</a></li>
-				</ul>
-			</div>
+			<c:if test="${empty user}">
+				<div class="col-md-offset-3 col-md-3">
+					<ul class="nav navbar-nav">
+						<li><%@ include file="login-register.jsp"%></li>
+						<li><a href="/artigos">Contato</a></li>
+					</ul>
+				</div>
+			</c:if>
+			<c:if test="${not empty user}">
+				<div class="col-md-offset-4 col-md-2">
+					<ul class="nav navbar-nav">
+						<li><a href="#" id="button-toggle">${user.nome}</a></li>
+					</ul>
+				</div>
+			</c:if>
 		</div>
 	</div>
 	<script src="/resources/js/app.js"></script>
