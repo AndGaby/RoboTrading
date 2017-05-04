@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import br.com.robotrading.web.model.Carrinho;
+import br.com.robotrading.web.model.Cliente;
 import br.com.robotrading.web.model.Robo;
 
 public interface CarrinhoDAO extends JpaRepository<Carrinho, Long> {
@@ -26,6 +27,8 @@ public interface CarrinhoDAO extends JpaRepository<Carrinho, Long> {
 
 	@Query("select s from Carrinho s where KEY(s.robos) = ?1")
 	List<Carrinho> findByRobo(Robo robo);
+	
+	List<Carrinho> findByCliente(Cliente cliente);
 	
 }
 

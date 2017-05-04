@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.robotrading.web.model.RegistroCliente;
 import br.com.robotrading.web.model.RegistroRobo;
 import br.com.robotrading.web.services.RegistrosService;
 
@@ -28,6 +29,14 @@ public class RegistrosController {
 		ModelAndView mav = new ModelAndView("registros/robos");
 		List<RegistroRobo> registrosRobos = registroService.getRegistroRobo(id);
 		mav.addObject("registros", registrosRobos);
+		return mav;
+	}
+	
+	@GetMapping("/cliente/{id}")
+	public ModelAndView mostrarInfoConta(@PathVariable("id") Long id) {
+		ModelAndView mav = new ModelAndView("registros/clientes");
+		List<RegistroCliente> registroCliente = registroService.getRegistroCliente(id);
+		mav.addObject("registros", registroCliente);
 		return mav;
 	}
 

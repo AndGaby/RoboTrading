@@ -8,13 +8,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Mammon Trading</title>
-<link rel="stylesheet" type="text/css"
-	href="/webjars/bootstrap/css/bootstrap.min.css" />
-<link href="<c:url value='/resources/css/business-casual.css'  />"
+<link href="<c:url value='/resources/css/simple-sidebar.css'  />"
 	rel="stylesheet" />
-<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<link href="<c:url value='/resources/css/bootstrap.min.css'  />"
+	rel="stylesheet" />
+<link href="<c:url value='/resources/css/bootstrap.css'  />"
+	rel="stylesheet" />
+<script type="text/javascript" src="/resources/js/jquery.js"></script>
+<script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
 <link
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
 	rel="stylesheet" type="text/css">
@@ -26,8 +27,10 @@
 	rel="stylesheet">
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>
+
 </head>
 <body>
+
 	<div class="navbar navbar-inverse">
 		<form action="/login" method="POST">
 			<c:if test="${empty user}">
@@ -40,29 +43,41 @@
 			</c:if>
 			<c:if test="${not empty user}">
 				<ul class="nav navbar-nav">
-					<li><a href="/clientes/${user.id}">${user.nome}</a></li>
-					<li><a href="/login">Deslogar</a></li>
+					<%@ include file="sidebar.jsp"%>
 				</ul>
 			</c:if>
 		</form>
 	</div>
-	<div class="brand">Mammon Trading</div>
-	<div class="address-bar">Robôs para Investimentos</div>
+		<div class="brand">Mammon Trading</div>
+		<div class="address-bar">Robôs para Investimentos</div>
 
-	<div class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Robô Trading</a>
+		<div class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Robô Trading</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="/">Home</a></li>
+					<li><a href="/robos">Robôs</a></li>
+					<li><a href="/artigos">Artigos</a></li>
+					<li><a href="/tutoriais">Tutoriais</a></li>
+					<li><a href="/contato">Contato</a></li>
+					<c:if test="${not empty user}">
+						<li><a href="#" id="button-toggle">Menu Cliente</a></li>
+					</c:if>
+				</ul>
 			</div>
-			<ul class="nav navbar-nav">
-				<li><a href="/">Home</a></li>
-				<li><a href="/robos">Robôs</a></li>
-				<li><a href="/artigos">Artigos</a></li>
-				<li><a href="/tutoriais">Tutoriais</a></li>
-				<li><a href="/contato">Contato</a></li>
-			</ul>
 		</div>
-	</div>
 	<script src="/resources/js/app.js"></script>
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+		$("#button-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
 </body>
 </html>

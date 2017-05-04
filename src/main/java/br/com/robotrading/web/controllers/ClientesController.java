@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.robotrading.web.dao.ClientesDAO;
+import br.com.robotrading.web.dao.RobosDAO;
 import br.com.robotrading.web.exception.ClienteNaoExisteException;
 import br.com.robotrading.web.model.Cliente;
 
@@ -54,6 +55,15 @@ public class ClientesController {
 	@GetMapping("/{idCli}")
 	public ModelAndView show(@PathVariable("idCli") Long idCli) {
 		ModelAndView mav = new ModelAndView("clientes/show");
+		mav.addObject("clientes", findCliente(idCli));
+		return mav;
+	}
+	
+	@GetMapping("/account/{idCli}")
+	public ModelAndView account(@PathVariable("idCli") Long idCli) {
+		ModelAndView mav = new ModelAndView("clientes/account");
+		
+		
 		mav.addObject("clientes", findCliente(idCli));
 		return mav;
 	}
