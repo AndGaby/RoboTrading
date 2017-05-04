@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import br.com.robotrading.web.model.Carrinho;
+import br.com.robotrading.web.model.Cliente;
 import br.com.robotrading.web.model.Robo;
 
 public interface CarrinhoDAO extends JpaRepository<Carrinho, Long> {

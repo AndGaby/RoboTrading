@@ -31,6 +31,14 @@ public class RegistrosController {
 		mav.addObject("registros", registrosRobos);
 		return mav;
 	}
+	
+	@GetMapping("/cliente/{id}")
+	public ModelAndView mostrarInfoConta(@PathVariable("id") Long id) {
+		ModelAndView mav = new ModelAndView("registros/clientes");
+		List<RegistroCliente> registroCliente = registroService.getRegistroCliente(id);
+		mav.addObject("registros", registroCliente);
+		return mav;
+	}
 
 	@GetMapping("/clientes/{id}")
 	public ModelAndView mostrarCompraDoCliente(@PathVariable("id") Long id) {

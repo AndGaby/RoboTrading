@@ -64,6 +64,7 @@ public class CarrinhoController {
 		if (cliente == null) {
 			// lancar error
 		}
+		
 
 		carrinho.setCliente(cliente);
 		carrinho.setDataCompra(LocalDateTime.now());
