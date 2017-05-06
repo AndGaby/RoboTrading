@@ -1,6 +1,9 @@
 package br.com.robotrading.web.model;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 
 public class RegistroRobo {
 
@@ -8,6 +11,7 @@ public class RegistroRobo {
 	private Cliente cliente;
 	private LocalDateTime dataCompra;
 	private Integer quantidade;
+	private Date dataFormatada;
 
 	public Robo getRobo() {
 		return robo;
@@ -41,4 +45,9 @@ public class RegistroRobo {
 		this.dataCompra = dataCompra;
 	}
 
+	public Date getDataFormatada() {
+		Instant instant = getDataCompra().atZone(ZoneId.systemDefault()).toInstant();
+		dataFormatada = Date.from(instant);
+		return dataFormatada;
+	}	
 }
