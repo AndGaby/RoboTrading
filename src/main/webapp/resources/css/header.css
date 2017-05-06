@@ -28,3 +28,18 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+#main_wrapper{
+    background-image: url('http://www.robotictrader.com.br/wp-content/uploads/2016/09/slide1.jpg');
+    width: 100%;
+    height: auto;
+    max-width: 1920px;
+    background-size:cover;
+    background-size: 100% 100%;  /*or cover like Ben Dyer states*/
+ 	background-repeat: no-repeat;
+}
+
+#main_content{
+    height: 500px;
+    width: 500px;
+}
