@@ -3,3 +3,28 @@
 	width: 300px;
 	background-color: #EEE;
 }
+
+/* .row-padded { */
+/*   padding: 35px; */
+/*   background-color: #00000; */
+/*   border: 1px solid #DDD; */
+/* } */
+
+/* .row-padded .span4 { */
+/*   background-color: #bbb; */
+/*   width: 30%; */
+/* } */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+}
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}

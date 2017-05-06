@@ -2,15 +2,17 @@
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<footer id="footer" class="mt-5">
+<footer class="mt-5">
 	<div class="container-fluid bg-primary py-3">
 		<div class="container">
 			<div class="row py-3">
-				<div class="col-md-12 text-center" >
-					<p class="text-white"><h4>Mammon Trading &copy; 2017</h4></p>
+				<div class="col-md-12 text-center">
+					<p class="text-white">
+					<h4>Mammon Trading &copy; 2017</h4>
+					</p>
 				</div>
 			</div>
-			<div class= "row py-3">
+			<div class="row py-3">
 				<div class="col-md-offset-9 col-md-3">
 					<div class="col-md-3">
 						<div class="bg-circle-outline">

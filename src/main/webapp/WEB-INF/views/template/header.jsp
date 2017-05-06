@@ -16,6 +16,8 @@
 	rel="stylesheet" />
 <link href="<c:url value='/resources/css/bootstrap.css'  />"
 	rel="stylesheet" />
+<link href="<c:url value='/resources/css/header.css' />"
+	rel="stylesheet" />
 <script type="text/javascript" src="/resources/js/jquery.js"></script>
 <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
 <link
@@ -25,14 +27,14 @@
 	href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
 	rel="stylesheet" type="text/css">
 <link
-	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css"
+	href="http://cdnjs.cloudflare.com/a	jax/libs/summernote/0.8.3/summernote.css"
 	rel="stylesheet">
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>
 
 </head>
 <body>
-
+<div class="Page">
 	<c:if test="${not empty user}">
 		<ul class="nav navbar-nav">
 			<%@ include file="sidebar.jsp"%>
@@ -68,6 +70,7 @@
 			</c:if>
 		</div>
 	</div>
+</div>
 	<script src="/resources/js/app.js"></script>
 	<script>
 		$("#menu-toggle").click(function(e) {
@@ -78,6 +81,12 @@
 			e.preventDefault();
 			$("#wrapper").toggleClass("toggled");
 		});
+		
+		if ($(".Page").height()<$(window).height()){
+	        $(".footer_wrapper").addClass("fixed");
+	    }else{
+	        $(".footer_wrapper").removeClass("fixed");
+	    }
 	</script>
 </body>
 </html>
