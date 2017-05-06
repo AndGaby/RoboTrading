@@ -26,6 +26,10 @@
 							<form:input path="linkArtigo" type="text" class="form-control" />
 						</div>
 						<div class="col-md-offset-3 col-md-6">
+							<label for="descricao"> Descrição: </label>
+							<form:textarea path="descricao" type="text" class="form-control" />
+						</div>
+						<div class="col-md-offset-3 col-md-6">
 							<label for="summernote"> Texto do Artigo: </label>
 							<form:textarea id="summernote" class="form-control" path="textoArtigo"/>
 						</div>

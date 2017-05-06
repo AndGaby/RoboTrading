@@ -19,6 +19,9 @@ public class Artigo {
 	private String linkArtigo;
 
 	@Lob
+	private String descricao;
+	
+	@Lob
 	private String textoArtigo;
 
 
@@ -54,5 +57,12 @@ public class Artigo {
 		this.id = id;
 	}
 
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
 }
