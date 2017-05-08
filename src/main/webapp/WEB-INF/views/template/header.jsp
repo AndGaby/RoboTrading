@@ -58,7 +58,7 @@
 				<div class="col-md-offset-3 col-md-3">
 					<ul class="nav navbar-nav">
 						<li><%@ include file="login-register.jsp"%></li>
-						<li><a href="/artigos">Contato</a></li>
+						<li><a href="/contatos">Contato</a></li>
 					</ul>
 				</div>
 			</c:if>

@@ -9,7 +9,7 @@
 						<b>Cadastre-se</b>
 					</h3>
 				</div>
-				<form id="ajax-register-form" action="/clientes/new" method="POST"
+				<form id="ajax-register-form" action="/clientes" method="POST"
 					role="form" autocomplete="off">
 					<div class="form-group">
 						<input type="text" name="nome" id="nome" tabindex="1"

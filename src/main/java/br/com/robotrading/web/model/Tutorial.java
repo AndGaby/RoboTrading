@@ -11,58 +11,44 @@ public class Tutorial {
 
 	@GeneratedValue
 	@Id
-	private Long tutorialID;
+	private Long id;
 
-	private String nometutorial;
+	private String nome;
 
-	private String textoTutorial;
-	
-	public Long getTutorialID() {
-		return tutorialID;
+	private String descricao;
+
+	private String link;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setTutorialID(Long tutorialID) {
-		this.tutorialID = tutorialID;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getNometutorial() {
-		return nometutorial;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNometutorial(String nometutorial) {
-		this.nometutorial = nometutorial;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getTextoTutorial() {
-		return textoTutorial;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setTextoTutorial(String textoTutorial) {
-		this.textoTutorial = textoTutorial;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((tutorialID == null) ? 0 : tutorialID.hashCode());
-		return result;
+	public String getLink() {
+		return link;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Tutorial other = (Tutorial) obj;
-		if (tutorialID == null) {
-			if (other.tutorialID != null)
-				return false;
-		} else if (!tutorialID.equals(other.tutorialID))
-			return false;
-		return true;
+	public void setLink(String link) {
+		this.link = link;
 	}
+
 }
