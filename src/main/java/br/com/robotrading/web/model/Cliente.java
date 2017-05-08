@@ -23,6 +23,8 @@ public class Cliente implements Serializable {
 
 	private String password;
 
+	private Boolean admin;
+
 	public Long getId() {
 		return id;
 	}
@@ -53,5 +55,13 @@ public class Cliente implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Boolean getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Boolean admin) {
+		this.admin = admin;
 	}
 }
