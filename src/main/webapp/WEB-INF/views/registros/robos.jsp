@@ -22,7 +22,7 @@
 								<tr>
 									<th><a href="/clientes/${reg.cliente.id}">${reg.cliente.nome}</a></th>
 									<th>${reg.quantidade}</th>
-									<th>${reg.dataCompra}</th>
+									<th><fmt:formatDate pattern="dd/MM/YYYY" value="${reg.dataFormatada}" /></th>
 							</c:forEach>
 						</table>
 					</div>
