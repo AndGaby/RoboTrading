@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.0" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="br.com.robotrading.web.controllers.ArtigosController" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/controllers/ArtigosController.java" binary="false" 
+  <class id="1" language="java" name="br.com.robotrading.web.controllers.ArtigosController" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/controllers/ArtigosController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="264" width="378" x="603" y="37"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -11,8 +11,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="2" language="java" name="br.com.robotrading.web.dao.ArtigoDAO" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/dao/ArtigoDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="2" language="java" name="br.com.robotrading.web.dao.ArtigoDAO" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/dao/ArtigoDAO.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="149" width="128" x="454" y="341"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -20,8 +20,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="3" language="java" name="br.com.robotrading.web.exception.ArtigoNaoExisteException" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/exception/ArtigoNaoExisteException.java" binary="false" 
+  <class id="3" language="java" name="br.com.robotrading.web.exception.ArtigoNaoExisteException" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/exception/ArtigoNaoExisteException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="834" y="406"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -30,8 +30,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="br.com.robotrading.web.model.Artigo" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/model/Artigo.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="br.com.robotrading.web.model.Artigo" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/model/Artigo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="293" width="155" x="603" y="530"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -39,8 +39,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="br.com.robotrading.web.exception.ClienteNaoExisteException" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/exception/ClienteNaoExisteException.java" binary="false" 
+  <class id="5" language="java" name="br.com.robotrading.web.exception.ClienteNaoExisteException" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/exception/ClienteNaoExisteException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="345" y="313"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -49,8 +49,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="br.com.robotrading.web.model.Cliente" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/model/Cliente.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="br.com.robotrading.web.model.Cliente" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/model/Cliente.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="347" width="165" x="194" y="530"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -58,8 +58,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="br.com.robotrading.web.controllers.ClientesController" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/controllers/ClientesController.java" binary="false" 
+  <class id="7" language="java" name="br.com.robotrading.web.controllers.ClientesController" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/controllers/ClientesController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="211" y="112"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -68,8 +68,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="8" language="java" name="br.com.robotrading.web.dao.ClientesDAO" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/dao/ClientesDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="8" language="java" name="br.com.robotrading.web.dao.ClientesDAO" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/dao/ClientesDAO.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="78" y="382"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -77,8 +77,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="9" language="java" name="br.com.robotrading.web.controllers.RobosController" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/controllers/RobosController.java" binary="false" 
+  <class id="9" language="java" name="br.com.robotrading.web.controllers.RobosController" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/controllers/RobosController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1202" y="184"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -87,8 +87,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="10" language="java" name="br.com.robotrading.web.dao.RobosDAO" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/dao/RobosDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="10" language="java" name="br.com.robotrading.web.dao.RobosDAO" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/dao/RobosDAO.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1134" y="566"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -96,8 +96,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="11" language="java" name="br.com.robotrading.web.exception.RoboNaoExisteException" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/exception/RoboNaoExisteException.java" binary="false" 
+  <class id="11" language="java" name="br.com.robotrading.web.exception.RoboNaoExisteException" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/exception/RoboNaoExisteException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1321" y="553"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -106,8 +106,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="br.com.robotrading.web.model.Robo" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/model/Robo.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="br.com.robotrading.web.model.Robo" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/model/Robo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="890" y="697"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -115,8 +115,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="br.com.robotrading.web.exception.TutorialNaoExisteException" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/exception/TutorialNaoExisteException.java" binary="false" 
+  <class id="13" language="java" name="br.com.robotrading.web.exception.TutorialNaoExisteException" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/exception/TutorialNaoExisteException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="128" y="1246"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -125,8 +125,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="14" language="java" name="br.com.robotrading.web.dao.TutorialDAO" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/dao/TutorialDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="14" language="java" name="br.com.robotrading.web.dao.TutorialDAO" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/dao/TutorialDAO.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="326" y="1273"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -134,8 +134,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="15" language="java" name="br.com.robotrading.web.controllers.TutorialController" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/controllers/TutorialController.java" binary="false" 
+  <class id="15" language="java" name="br.com.robotrading.web.controllers.TutorialController" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/controllers/TutorialController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="440" y="1039"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -144,8 +144,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="br.com.robotrading.web.model.Tutorial" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/model/Tutorial.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="16" language="java" name="br.com.robotrading.web.model.Tutorial" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/model/Tutorial.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="496" y="1525"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -153,8 +153,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="br.com.robotrading.web.exception.PedidoNaoExisteException" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/exception/PedidoNaoExisteException.java" binary="false" 
+  <class id="17" language="java" name="br.com.robotrading.web.exception.PedidoNaoExisteException" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/exception/PedidoNaoExisteException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="931" y="1358"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -163,8 +163,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="br.com.robotrading.web.controllers.CarrinhoController" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/controllers/CarrinhoController.java" binary="false" 
+  <class id="18" language="java" name="br.com.robotrading.web.controllers.CarrinhoController" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/controllers/CarrinhoController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1179" y="1133"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -173,8 +173,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="br.com.robotrading.web.exception.QuantidadeRoboInvalidoException" project="mamon" 
-    file="/mamon/src/main/java/br/com/robotrading/web/exception/QuantidadeRoboInvalidoException.java" binary="false" 
+  <class id="19" language="java" name="br.com.robotrading.web.exception.QuantidadeRoboInvalidoException" project="RoboTrading" 
+    file="/RoboTrading/src/main/java/br/com/robotrading/web/exception/QuantidadeRoboInvalidoException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="95" width="220" x="1116" y="1403"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

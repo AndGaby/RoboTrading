@@ -35,43 +35,50 @@
 
 </head>
 <body>
-<div class="Page">
-	<c:if test="${not empty user}">
-		<ul class="nav navbar-nav">
-			<%@ include file="sidebar.jsp"%>
-		</ul>
-	</c:if>
-	<div class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="col-md-2 navbar-header">
-				<a class="navbar-brand" href="#">Mammon Trading</a>
-			</div>
-			<div class="col-md-4">
-				<ul class="nav navbar-nav">
-					<li><a href="/">Home</a></li>
-					<li><a href="/robos">Robôs</a></li>
-					<li><a href="/artigos">Artigos</a></li>
-					<li><a href="/tutoriais">Tutoriais</a></li>
-				</ul>
-			</div>
-			<c:if test="${empty user}">
-				<div class="col-md-offset-3 col-md-3">
+	<div class="Page">
+		<c:if test="${not empty user}">
+			<ul class="nav navbar-nav">
+				<%@ include file="sidebar.jsp"%>
+			</ul>
+		</c:if>
+		<div class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="col-md-2 navbar-header">
+					<a class="navbar-brand" href="/">Mammon Trading</a>
+				</div>
+				<div class="col-md-4">
 					<ul class="nav navbar-nav">
-						<li><%@ include file="login-register.jsp"%></li>
-						<li><a href="/contatos">Contato</a></li>
+						<li><a href="/">Home</a></li>
+						<li><a href="/robos">Robôs</a></li>
+						<li><a href="/artigos">Artigos</a></li>
+						<li><a href="/tutoriais">Tutoriais</a></li>
 					</ul>
 				</div>
-			</c:if>
-			<c:if test="${not empty user}">
-				<div class="col-md-offset-4 col-md-2">
-					<ul class="nav navbar-nav">
-						<li><a href="#" id="button-toggle">${user.nome}</a></li>
-					</ul>
-				</div>
-			</c:if>
+				<c:if test="${empty user}">
+					<div class="col-md-offset-3 col-md-3">
+						<ul class="nav navbar-nav">
+							<li><%@ include file="login-register.jsp"%></li>
+							<li><a href="/contatos">Contato</a></li>
+						</ul>
+					</div>
+				</c:if>
+				<c:if test="${not empty user}">
+					<div class="col-md-offset-4 col-md-2">
+						<ul class="nav navbar-nav">
+							<li><a href="#" id="button-toggle">${user.nome}</a></li>
+						</ul>
+					</div>
+				</c:if>
+			</div>
 		</div>
+		
+		<c:if test="${msg != null}">
+			<div class="alert alert-danger alert-dismissable">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  				<strong>${msg}</strong> 
+			</div>
+		</c:if>
 	</div>
-</div>
 	<script src="/resources/js/app.js"></script>
 	<script>
 		$("#menu-toggle").click(function(e) {
@@ -82,12 +89,12 @@
 			e.preventDefault();
 			$("#wrapper").toggleClass("toggled");
 		});
-		
-		if ($(".Page").height()<$(window).height()){
-	        $(".footer_wrapper").addClass("fixed");
-	    }else{
-	        $(".footer_wrapper").removeClass("fixed");
-	    }
+
+		if ($(".Page").height() < $(window).height()) {
+			$(".footer_wrapper").addClass("fixed");
+		} else {
+			$(".footer_wrapper").removeClass("fixed");
+		}
 	</script>
 </body>
 </html>

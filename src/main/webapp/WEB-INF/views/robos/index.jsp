@@ -1,5 +1,4 @@
 <%@ include file="../template/header.jsp"%>
-
 <body>
 	<div id="main_wrapper">
         <div id="main_content">
