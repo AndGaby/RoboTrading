@@ -16,7 +16,7 @@
 						placeholder="Email" value="${user.email }" />
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="inputMsg">Menssagem:</label>
+					<label class="control-label" for="inputMsg">Mensagem:</label>
 					<div class="controls">
 						<textarea class="form-control" name="assunto" rows="8"></textarea>
 					</div>

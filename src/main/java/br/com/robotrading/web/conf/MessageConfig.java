@@ -33,7 +33,7 @@ public class MessageConfig  extends WebMvcConfigurerAdapter {
 	public FilterRegistrationBean myFilterBean() {
 	  final FilterRegistrationBean filterRegBean = new FilterRegistrationBean();
 	  filterRegBean.setFilter(loginFilter());
-	  filterRegBean.addUrlPatterns("/registros/cliente/*");
+	  filterRegBean.addUrlPatterns("/registros/cliente/*","/clientes/account/*");
 	  filterRegBean.setEnabled(Boolean.TRUE);
 	  filterRegBean.setName("loginFilter");
 	  filterRegBean.setOrder(Ordered.HIGHEST_PRECEDENCE);

@@ -19,6 +19,11 @@
 	rel="stylesheet" />
 <link href="<c:url value='/resources/css/header.css' />"
 	rel="stylesheet" />
+<link href="<c:url value='/resources/css/footer.css' />"
+		rel="stylesheet" />
+<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		
 <script type="text/javascript" src="/resources/js/jquery.js"></script>
 <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
 <link
@@ -41,7 +46,7 @@
 				<%@ include file="sidebar.jsp"%>
 			</ul>
 		</c:if>
-		<div class="navbar navbar-inverse">
+		<div id="header" class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="col-md-2 navbar-header">
 					<a class="navbar-brand" href="/">Mammon Trading</a>
@@ -71,13 +76,6 @@
 				</c:if>
 			</div>
 		</div>
-		
-		<c:if test="${msg != null}">
-			<div class="alert alert-danger alert-dismissable">
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  				<strong>${msg}</strong> 
-			</div>
-		</c:if>
 	</div>
 	<script src="/resources/js/app.js"></script>
 	<script>
@@ -96,6 +94,5 @@
 			$(".footer_wrapper").removeClass("fixed");
 		}
 	</script>
-</body>
-</html>
+
 

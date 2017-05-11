@@ -38,10 +38,7 @@ public class LoginFilter implements Filter {
 		System.out.println(url);
 		
 		if (user == null) {
-			httpServletRequest.setAttribute("msg", 
-					"Favor efetuar o login para continuar!");
-			httpServletResponse.sendRedirect("/");
-		//	httpServletRequest.getRequestDispatcher("/").forward(httpServletRequest, httpServletResponse);
+			httpServletResponse.sendRedirect("/clientes/erro");
 		}else{
 			chain.doFilter(httpServletRequest, httpServletResponse);
 		}

@@ -36,6 +36,12 @@ public class ClientesController {
 		mav.addObject("clientes", clientes);
 		return mav;
 	}
+	
+	@GetMapping("/erro")
+	public ModelAndView erroSessao() {
+		ModelAndView mav = new ModelAndView("clientes/erro-sessao");
+		return mav;
+	}
 
 	@PostMapping
 	public ModelAndView create(@Valid Cliente cliente, BindingResult result, RedirectAttributes attrs) {
@@ -62,7 +68,6 @@ public class ClientesController {
 	@GetMapping("/account/{idCli}")
 	public ModelAndView account(@PathVariable("idCli") Long idCli) {
 		ModelAndView mav = new ModelAndView("clientes/account");
-		
 		
 		mav.addObject("clientes", findCliente(idCli));
 		return mav;
