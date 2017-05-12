@@ -22,6 +22,7 @@ html {
 body {
     margin: 0 0 100px; 
     padding-top: 50px;
+/*     background: #EAEAEA; */
 }
 footer {
     position: absolute;
@@ -36,6 +37,7 @@ footer {
 
 #header{
 	height: 50px;
+	
 }
 
 #robo{
@@ -55,4 +57,14 @@ footer {
 #main_content{
     height: 500px;
     width: 500px;
+}
+
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+}
+
+.nav-tabs {
+    text-align:center;
 }

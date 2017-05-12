@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.robotrading.web.dao.ClientesDAO;
-import br.com.robotrading.web.dao.RobosDAO;
 import br.com.robotrading.web.exception.ClienteNaoExisteException;
 import br.com.robotrading.web.model.Cliente;
 
