@@ -1,10 +1,15 @@
 package br.com.robotrading.web.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +29,9 @@ public class Cliente implements Serializable {
 	private String password;
 
 	private Boolean admin;
+	
+	@OneToMany(fetch = FetchType.EAGER,cascade= CascadeType.ALL)
+	private List<LoginMetatrade> loginsMetatrade = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -63,5 +71,13 @@ public class Cliente implements Serializable {
 
 	public void setAdmin(Boolean admin) {
 		this.admin = admin;
+	}
+
+	public List<LoginMetatrade> getLoginsMetatrade() {
+		return loginsMetatrade;
+	}
+
+	public void setLoginsMetatrade(List<LoginMetatrade> loginsMetatrade) {
+		this.loginsMetatrade = loginsMetatrade;
 	}
 }

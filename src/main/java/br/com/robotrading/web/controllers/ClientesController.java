@@ -1,5 +1,8 @@
 package br.com.robotrading.web.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -10,12 +13,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.robotrading.web.dao.ClientesDAO;
+import br.com.robotrading.web.dao.LoginMetatradeDAO;
 import br.com.robotrading.web.exception.ClienteNaoExisteException;
 import br.com.robotrading.web.model.Cliente;
+import br.com.robotrading.web.model.LoginMetatrade;
 
 @Controller
 @RequestMapping("/clientes")
@@ -23,6 +29,9 @@ public class ClientesController {
 
 	@Autowired
 	private ClientesDAO clientesDAO;
+	
+	@Autowired
+	private LoginMetatradeDAO loginMetatradeDAO;
 
 	@GetMapping("/login/{id}")
 	public void metodoAuxiliarTeste(@PathVariable("id") Long idCli, HttpSession session) {
@@ -67,8 +76,7 @@ public class ClientesController {
 	@GetMapping("/account/{idCli}")
 	public ModelAndView account(@PathVariable("idCli") Long idCli) {
 		ModelAndView mav = new ModelAndView("clientes/account");
-		
-		mav.addObject("clientes", findCliente(idCli));
+//		mav.addObject("cliente", findCliente(idCli));
 		return mav;
 	}
 
@@ -80,21 +88,41 @@ public class ClientesController {
 	}
 
 	@PostMapping("/{idCli}")
-	public ModelAndView update(@PathVariable("idCli") Long idCli, @Valid Cliente clientes, BindingResult result,
+	public ModelAndView update(@PathVariable("idCli") Long idCli,@RequestParam("loginsMetatrader") String[] loginsMetatrader,
 			RedirectAttributes attrs) {
 		ModelAndView mav = null;
 
-		findCliente(idCli);
-
-		if (result.hasErrors()) {
-			mav = new ModelAndView("clientes/edit");
-		} else {
-			clientesDAO.save(clientes);
-			mav = new ModelAndView("clientes/show");
-			attrs.addFlashAttribute("msg", "Dados atualizado com sucesso");
+		Cliente cliente = findCliente(idCli);
+		List<LoginMetatrade> oldLogins = cliente.getLoginsMetatrade();
+		List<LoginMetatrade> newLogins = new ArrayList<>();
+		List<LoginMetatrade> removeLogins = new ArrayList<>();
+		
+		for (String loginMetatrader : loginsMetatrader) {
+			if(!loginMetatrader.isEmpty() && loginMetatrader != null){
+				LoginMetatrade login = new LoginMetatrade();
+				login.setCliente(cliente);
+				login.setLoginMetatrade(loginMetatrader);
+				newLogins.add(login);
+				oldLogins.stream()
+						 .filter(old -> old.equals(login))
+						 .forEach(old -> {
+							 	newLogins.remove(login);
+							 	newLogins.add(old);
+								removeLogins.add(old); 
+						});		
+			}
 		}
-
-		mav.addObject("clientes", clientes);
+		
+		removeLogins.stream()
+					.forEach(r -> oldLogins.remove(r));
+		
+		cliente.setLoginsMetatrade(newLogins);
+		clientesDAO.save(cliente);
+		loginMetatradeDAO.delete(oldLogins);
+		mav = new ModelAndView("clientes/account");
+		attrs.addFlashAttribute("msg", "Dados atualizado com sucesso");
+		mav.addObject("cliente", cliente);
+		
 		return mav;
 	}
 
