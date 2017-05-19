@@ -1,7 +1,5 @@
 package br.com.robotrading.web.filters;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.head;
-
 import java.io.IOException;
 import java.util.Enumeration;
 
