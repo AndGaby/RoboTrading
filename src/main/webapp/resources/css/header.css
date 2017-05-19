@@ -20,13 +20,28 @@ html {
     min-height: 100%;
 }
 body {
-    margin: 0 0 100px; /* bottom = footer height */
+    margin: 0 0 100px; 
+    padding-top: 50px;
+/*     background: #EAEAEA; */
 }
 footer {
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+/* .navbar-inverse { */
+/*     min-height: 70px; */
+/* } */
+
+#header{
+	height: 50px;
+	
+}
+
+#robo{
+	padding-bottom: 50px;
 }
 
 #main_wrapper{
@@ -42,4 +57,14 @@ footer {
 #main_content{
     height: 500px;
     width: 500px;
+}
+
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+}
+
+.nav-tabs {
+    text-align:center;
 }

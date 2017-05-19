@@ -1,10 +1,10 @@
 <%@ include file="../template/header.jsp"%>
-
 <body>
 	<div id="main_wrapper">
         <div id="main_content">
         </div>
 	</div>
+	<br><br><br>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-2 col-md-8 text-center">
@@ -52,5 +52,4 @@
 		</div>
 	</div>
 </body>
-
 <%@ include file="../template/footer.jsp"%>

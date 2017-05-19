@@ -51,7 +51,7 @@
 					</h3>
 				</div>
 				<form id="ajax-login-form" action="/login" method="POST" role="form"
-					autocomplete="off">
+					autocomplete="on">
 					<div class="form-group">
 						<label for="email">E-mail</label> <input type="text" name="email"
 							id="email" tabindex="1" class="form-control" placeholder="E-mail"

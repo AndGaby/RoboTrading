@@ -1,4 +1,4 @@
-package br.com.robotrading.web.filter;
+package br.com.robotrading.web.filters;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.head;
 
@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -25,7 +26,7 @@ public class LoginFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-
+		System.out.println("Initing Filter!");
 	}
 
 	@Override
@@ -42,21 +43,27 @@ public class LoginFilter implements Filter {
 
 		while (headerNames.hasMoreElements()) {
 			String element = headerNames.nextElement();
-			System.out.print(element  + "  =  ");
+			System.out.print(element + "  =  ");
 			System.out.println(servlet.getHeader(element));
 		}
 		Cliente user = (Cliente) ((HttpServletRequest) request).getSession().getAttribute("user");
 		chain.doFilter(request, response);
+
+		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+
 		if (user == null) {
+			httpServletResponse.sendRedirect("/clientes/erro");
+		} else {
+			chain.doFilter(servlet, httpServletResponse);
 		}
 		if (url.startsWith("/registros/cliente/")) {
 
 		}
-
 	}
 
 	@Override
 	public void destroy() {
-
+		System.out.println("Finishing Filter!");
 	}
+
 }
