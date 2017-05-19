@@ -1,6 +1,9 @@
 package br.com.robotrading.web.filter;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.head;
+
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -28,15 +31,26 @@ public class LoginFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		HttpServletRequest servlet = (HttpServletRequest) request;
+		Enumeration<String> headerNames = servlet.getHeaderNames();
 		String url = ((HttpServletRequest) request).getServletPath();
 		String method = ((HttpServletRequest) request).getMethod();
 
 		System.out.println(url);
 		System.out.println(method);
+		System.out.println(request.getRemoteAddr());
 
+		while (headerNames.hasMoreElements()) {
+			String element = headerNames.nextElement();
+			System.out.print(element  + "  =  ");
+			System.out.println(servlet.getHeader(element));
+		}
 		Cliente user = (Cliente) ((HttpServletRequest) request).getSession().getAttribute("user");
 		chain.doFilter(request, response);
 		if (user == null) {
+		}
+		if (url.startsWith("/registros/cliente/")) {
+
 		}
 
 	}
