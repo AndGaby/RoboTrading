@@ -1,6 +1,11 @@
 <%@ include file="../template/header.jsp"%>
 
 <body>
+	<div id="div-fundo-tutorial">	
+        <div id="formato-div">
+        	
+        </div>  
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="container">

@@ -9,18 +9,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "LoginsMetatrade")
-public class LoginMetatrade implements Serializable {
+@Table(name = "login_metatrader")
+public class LoginMetatrader implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
 	private Long id;
-	
 	@ManyToOne
 	private Cliente cliente;
 	
-	private String loginMetatrade;
+	private String loginMetatrader;
 
 	public Long getId() {
 		return id;
@@ -38,24 +38,11 @@ public class LoginMetatrade implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public String getLoginMetatrade() {
-		return loginMetatrade;
+	public String getLoginMetatrader() {
+		return loginMetatrader;
 	}
 
-	public void setLoginMetatrade(String loginMetatrade) {
-		this.loginMetatrade = loginMetatrade;
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		
-		LoginMetatrade login = (LoginMetatrade)obj;
-		
-		if(this.getCliente().equals(login.getCliente())
-			 && this.getLoginMetatrade().equals(login.getLoginMetatrade())){
-			return true;
-		}
-		return false;
-	}
-	
+	public void setLoginMetatrader(String loginMetatrader) {
+		this.loginMetatrader = loginMetatrader;
+	}	
 }

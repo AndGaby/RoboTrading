@@ -1,5 +1,6 @@
 <%@ include file="../template/header.jsp"%>
-<br><br>
+<br>
+<br>
 <body>
 	<div class="container">
 		<div class="row">
@@ -57,21 +58,25 @@
 		<div class="row">
 			<div class="box">
 				<div class="col-lg-12">
-					<hr>
-					<h2 class="intro-text text-center">
-						Conheça: <strong> O Sistema </strong>
-					</h2>
-					<hr>
-					<img class="img-responsive img-border img-left"
-						src="/resources/img/img5.jpg" alt="">
-					<hr class="visible-xs">
-					<p>Para investimentos automatizados, o único auxílio humano é
-						no ajuste dos parâmetros, esses serão utilizados para determinar
-						qual rumo o robô deve seguir, investimento com níveis de risco
-						maiores ou menores.</p>
-					<p>O principal foco do robô será day trade, operações iniciadas
-						e finalizadas no mesmo dia. Com o objetivo de ganhar pouco por
-						operações porém ganhar muitas vezes.</p>
+					<div id="div-fundo-home">
+						<hr>
+						
+						<br>
+						
+						<h2 id="texto-branco-titulo">
+							Conheça: <strong> O Sistema </strong>
+						</h2>
+						<hr>
+
+						<hr class="visible-xs">
+						<p id="texto-branco">Para investimentos automatizados, o único
+							auxílio humano é no ajuste dos parâmetros, esses serão utilizados
+							para determinar qual rumo o robô deve seguir, investimento com
+							níveis de risco maiores ou menores.</p>
+						<p id="texto-branco">O principal foco do robô será day trade,
+							operações iniciadas e finalizadas no mesmo dia. Com o objetivo de
+							ganhar pouco por operações porém ganhar muitas vezes.</p>
+					</div>
 				</div>
 			</div>
 		</div>

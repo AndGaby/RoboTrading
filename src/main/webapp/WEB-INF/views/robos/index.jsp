@@ -1,8 +1,10 @@
 <%@ include file="../template/header.jsp"%>
 <body>
-	<div id="main_wrapper">
-        <div id="main_content">
-        </div>
+	<div id="div-fundo-robo">	
+        <div id="formato-div">
+        	<br><br><br>
+        	<h2 id="texto-branco-titulo">Robôs para Investimentos</h2>
+        </div>  
 	</div>
 	<br><br><br>
 	<div class="container">
