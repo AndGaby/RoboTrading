@@ -67,6 +67,7 @@ public class ClientesController {
 	@GetMapping("/account/{idCli}")
 	public ModelAndView account(@PathVariable("idCli") Long idCli) {
 		ModelAndView mav = new ModelAndView("clientes/account");
+		mav.addObject("cliente",clienteService.findCliente(idCli));
 		return mav;
 	}
 
@@ -78,7 +79,7 @@ public class ClientesController {
 	}
 
 	@PostMapping("/loginsMetatrader/{idCli}")
-	public ModelAndView update(@PathVariable("idCli") Long idCli,@RequestParam("loginsMetatrader") String[] loginsMetatrader,
+	public ModelAndView updateLoginsMetatrader(@PathVariable("idCli") Long idCli,@RequestParam("loginsMetatrader") String[] loginsMetatrader,
 			RedirectAttributes attrs) {
 		ModelAndView mav = null;
 

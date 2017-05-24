@@ -90,7 +90,7 @@
 					</form:form>
 				</div>
 				<div class="tab-pane fade" id="metatrader">
-					<form:form id="tab3" action="/clientes/${user.id}" method="POST">
+					<form:form id="tab3" action="/clientes/loginsMetatrader/${user.id}" method="POST">
 						<div align="center">
 							<h4>
 								<strong> Para fins de compras futuras conosco,<br>
