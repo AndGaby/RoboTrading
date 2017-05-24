@@ -1,16 +1,12 @@
 package br.com.robotrading.web.services;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.com.robotrading.web.dao.CarrinhoDAO;
-import br.com.robotrading.web.dao.ClientesDAO;
 import br.com.robotrading.web.dao.RobosDAO;
 import br.com.robotrading.web.model.Carrinho;
 import br.com.robotrading.web.model.RegistroCliente;
@@ -24,8 +20,6 @@ public class RegistrosService {
 	private CarrinhoDAO carrinhoDAO;
 	@Autowired
 	private RobosDAO robosDAO;
-	@Autowired
-	private ClientesDAO clientesDAO;
 
 	public List<RegistroRobo> getRegistroRobo(Long id) {
 		Robo robo = robosDAO.findOne(id);
